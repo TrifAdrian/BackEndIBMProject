@@ -2,17 +2,37 @@ package ibm.practica.checkin.controller;
 
 import ibm.practica.checkin.model.Classroom;
 import ibm.practica.checkin.model.User;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/classroom")
+@RequestMapping("/classroom")
 public class ClassroomController {
 
-    @GetMapping("/test")
-    public Classroom getClassroom(){
+    @GetMapping("/get/{id}")
+
+    public Classroom getClassroomById(){
         return null;
     }
+
+    @PostMapping("/add")
+    public Classroom addClassroom()
+    {
+        return null;
+    }
+
+    @PutMapping("/update")
+    public Classroom updateClassroom()
+    {
+        return null;
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteClassroom()
+    {
+
+    }
+
+
+
 
 }

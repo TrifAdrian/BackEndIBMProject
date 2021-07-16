@@ -1,34 +1,59 @@
 package ibm.practica.checkin.model;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.List;
 
-@Entity
 @ApiModel
 public class Class {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    @ApiModelProperty (value = "numele materiei")
     private String name;
-//    private User teacher;
+    private User teacher;
     private Integer year;
     private String section;
-//    private List<User> studentList;
-//    private Classroom classroom;
+    private List<User> studentList;
+    private Classroom classroom;
 
 
+    public User getTeacher() {
+        return teacher;
+    }
 
-    public Class(String name, Integer year, String section) {
+    public void setTeacher(User teacher) {
+        this.teacher = teacher;
+    }
+
+    public List<User> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<User> studentList) {
+        this.studentList = studentList;
+    }
+
+    public Classroom getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(Classroom classroom) {
+        this.classroom = classroom;
+    }
+
+    public Class(String name, User teacher, Integer year, String section, List<User> studentList, Classroom classroom) {
         this.name = name;
+        this.teacher = teacher;
         this.year = year;
         this.section = section;
+        this.studentList = studentList;
+        this.classroom = classroom;
     }
 
     public Class() {

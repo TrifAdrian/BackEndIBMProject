@@ -4,8 +4,8 @@ import io.swagger.annotations.ApiModel;
 import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
+import java.util.HashMap;
 
-@Entity
 @ApiModel
 public class Classroom {
 
@@ -18,11 +18,21 @@ public class Classroom {
     private Integer capacity;
     @Column(name = "features")
     private String features;
+    private HashMap<Integer,User> chair_slots;
+
+    public HashMap<Integer, User> getChair_slots() {
+        return chair_slots;
+    }
+
+    public void setChair_slots(HashMap<Integer, User> chair_slots) {
+        this.chair_slots = chair_slots;
+    }
 
     public Classroom(String location, Integer capacity, String features) {
         this.location = location;
         this.capacity = capacity;
         this.features = features;
+        
     }
 
     public Classroom() {

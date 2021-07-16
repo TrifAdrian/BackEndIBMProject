@@ -1,13 +1,10 @@
 package ibm.practica.checkin.model;
 
 import io.swagger.annotations.ApiModel;
-import org.hibernate.annotations.CollectionId;
-import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
 
 
-@Entity
 @ApiModel
 
 public class User {
