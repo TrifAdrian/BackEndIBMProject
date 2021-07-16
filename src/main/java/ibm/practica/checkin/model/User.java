@@ -1,14 +1,10 @@
 package ibm.practica.checkin.model;
 
 import io.swagger.annotations.ApiModel;
-import org.hibernate.annotations.GeneratorType;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+
 @ApiModel
 
 public class User {
@@ -16,9 +12,39 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String first_name;
     private String last_name;
+    @Column(name = "`role`")
     private String role;
+    @Column(name = "`year`")
+    private Integer year;
+    @Column(name = "`department`")
+    private String department;
+    @Column(name = "`section`")
+    private String section;
+    @Column(name = "`group`")
+    private String  group;
+
+    public User() {
+    }
+
+    public User(String first_name, String last_name, String role, Integer year, String department, String section, String group) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.role = role;
+        this.year = year;
+        this.department = department;
+        this.section = section;
+
+        this.group = group;
+    }
+
+    public User(String first_name, String last_name, String role) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.role = role;
+    }
 
     @Override
     public String toString() {
@@ -27,16 +53,11 @@ public class User {
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", role='" + role + '\'' +
+                ", year=" + year +
+                ", department='" + department + '\'' +
+                ", section='" + section + '\'' +
+                ", group='" + group + '\'' +
                 '}';
-    }
-
-    public User() {
-    }
-
-    public User(String first_name, String last_name, String role) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.role = role;
     }
 
     public Long getId() {
@@ -69,5 +90,37 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getSection() {
+        return section;
+    }
+
+    public void setSection(String section) {
+        this.section = section;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 }
