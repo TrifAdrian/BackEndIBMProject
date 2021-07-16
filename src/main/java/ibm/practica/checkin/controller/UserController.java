@@ -12,8 +12,11 @@ import java.util.Collections;
 @RestController
 @RequestMapping("/api")
 public class UserController {
+
     @GetMapping("/test")
     public User getUser(){
         return null;
     }
+
+
 }
