@@ -9,24 +9,24 @@ public class ClassroomController {
 
     @GetMapping("/get/{id}")
 
-    public ClassroomDTO getClassroomById(){
+    public ClassroomDTO getclassroombyid(){
         return null;
     }
 
     @PostMapping("/add")
-    public ClassroomDTO addClassroom()
+    public ClassroomDTO addclassroom()
     {
         return null;
     }
 
     @PutMapping("/update")
-    public ClassroomDTO updateClassroom()
+    public ClassroomDTO updateclassroom()
     {
         return null;
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteClassroom()
+    public void deleteclassroom()
     {
 
     }

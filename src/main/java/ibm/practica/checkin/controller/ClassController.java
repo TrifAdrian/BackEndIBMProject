@@ -13,25 +13,25 @@ import java.util.List;
 public class ClassController {
 
     @GetMapping("/getclass/{id}")
-    public ClassDTO getClassbyId(){
+    public ClassDTO getclassbyid(){
         return null;
     }
 
     @PostMapping("/reserve/")
     @ApiOperation(value = "the student reserves a spot for a certain Class")
-    public UserDTO reserveSpot()
+    public UserDTO reservespot()
     {
         return null;
     }
 
     @PutMapping("/update/{id}")
-    public ClassDTO updateClass()
+    public ClassDTO updateclass()
     {
         return null;
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteClass()
+    public void deleteclass()
     {
 
     }

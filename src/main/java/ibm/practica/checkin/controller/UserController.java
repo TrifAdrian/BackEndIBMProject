@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @GetMapping("/get/{id}")
-    public UserDTO getUserById(){
+    public UserDTO getuserbyid(){
         return null;
     }
 
     @PostMapping
-    public UserDTO addUser()
+    public UserDTO adduser()
     {
         return null;
     }
