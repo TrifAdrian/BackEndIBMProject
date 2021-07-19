@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/class")
 public class ClassController {
 
-    @GetMapping("/getclass/{id}")
+    @GetMapping("/info/{id}")
     public ClassDTO getclassbyid(){
         return null;
     }
@@ -30,11 +30,9 @@ public class ClassController {
         return null;
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/remove/{id}")
     public void deleteclass()
-    {
-
-    }
+    {}
 
     @GetMapping("/suggest")
     @ApiOperation(value = "In case the classroom is full or not available suggest alternatives")

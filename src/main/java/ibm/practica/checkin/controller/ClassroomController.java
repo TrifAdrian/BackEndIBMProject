@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/classroom")
 public class ClassroomController {
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/info/{id}")
 
     public ClassroomDTO getclassroombyid(){
         return null;
     }
 
-    @PostMapping("/add")
+    @PostMapping("/save")
     public ClassroomDTO addclassroom()
     {
         return null;
@@ -25,11 +25,8 @@ public class ClassroomController {
         return null;
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void deleteclassroom()
-    {
-
-    }
+    @DeleteMapping("/remove/{id}")
+    public void deleteclassroom() {}
 
 
 
