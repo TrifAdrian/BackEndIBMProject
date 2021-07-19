@@ -1,11 +1,10 @@
 package ibm.practica.checkin.controller;
 
-import ibm.practica.checkin.model.Class;
-import ibm.practica.checkin.model.User;
+import ibm.practica.checkin.dto.ClassDTO;
+import ibm.practica.checkin.dto.UserDTO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,19 +13,19 @@ import java.util.List;
 public class ClassController {
 
     @GetMapping("/getclass/{id}")
-    public Class getClassbyId(){
+    public ClassDTO getClassbyId(){
         return null;
     }
 
     @PostMapping("/reserve/")
     @ApiOperation(value = "the student reserves a spot for a certain Class")
-    public User reserveSpot()
+    public UserDTO reserveSpot()
     {
         return null;
     }
 
     @PutMapping("/update/{id}")
-    public Class updateClass()
+    public ClassDTO updateClass()
     {
         return null;
     }
@@ -39,7 +38,7 @@ public class ClassController {
 
     @GetMapping("/suggest")
     @ApiOperation(value = "In case the classroom is full or not available suggest alternatives")
-    public List<Class> getAlternativeOptions()
+    public List<ClassDTO> getAlternativeOptions()
     {
         return Collections.emptyList();
     }
