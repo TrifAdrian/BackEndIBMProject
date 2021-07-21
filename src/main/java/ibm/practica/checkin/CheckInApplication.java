@@ -1,5 +1,6 @@
 package ibm.practica.checkin;
 
+import ibm.practica.checkin.entity.Classroom;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
