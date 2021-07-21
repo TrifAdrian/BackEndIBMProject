@@ -13,19 +13,9 @@ public class User {
     private String first_name;
     private String last_name;
 
-
-
     @OneToOne(cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
     @JoinColumn(name = "role")
     private Role role;
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
 
     @Column(name = "`year`")
     private Integer year;
@@ -34,7 +24,25 @@ public class User {
     @Column(name = "`group`")
     private String group;
 
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn (name = "studentId")
+    private Class aClass;
 
+    public Class getaClass() {
+        return aClass;
+    }
+
+    public void setaClass(Class aClass) {
+        this.aClass = aClass;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public Long getId() {
         return id;

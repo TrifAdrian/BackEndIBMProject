@@ -19,6 +19,7 @@ public class Class {
     private User teacher;
 
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.LAZY)
+
     private List<User> studentList = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
