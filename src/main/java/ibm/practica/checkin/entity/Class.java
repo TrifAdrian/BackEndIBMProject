@@ -1,25 +1,28 @@
-package ibm.practica.checkin.model;
+package ibm.practica.checkin.entity;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
-@ApiModel
+@Entity
+@Table
 public class Class {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ApiModelProperty (value = "numele materiei")
     private String name;
-    private User teacher;
     private Integer year;
     private String section;
-    private List<User> studentList;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private User teacher;
+
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.LAZY)
+
+    private List<User> studentList = new ArrayList<>();
+
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Classroom classroom;
 
 
@@ -45,28 +48,6 @@ public class Class {
 
     public void setClassroom(Classroom classroom) {
         this.classroom = classroom;
-    }
-
-    public Class(String name, User teacher, Integer year, String section, List<User> studentList, Classroom classroom) {
-        this.name = name;
-        this.teacher = teacher;
-        this.year = year;
-        this.section = section;
-        this.studentList = studentList;
-        this.classroom = classroom;
-    }
-
-    public Class() {
-    }
-
-    @Override
-    public String toString() {
-        return "Class{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", year=" + year +
-                ", section='" + section + '\'' +
-                '}';
     }
 
     public Long getId() {
@@ -100,5 +81,4 @@ public class Class {
     public void setSection(String section) {
         this.section = section;
     }
-
 }

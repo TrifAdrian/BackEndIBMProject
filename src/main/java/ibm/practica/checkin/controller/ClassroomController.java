@@ -1,36 +1,32 @@
 package ibm.practica.checkin.controller;
 
-import ibm.practica.checkin.model.Classroom;
-import ibm.practica.checkin.model.User;
+import ibm.practica.checkin.dto.ClassroomDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/classroom")
 public class ClassroomController {
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/info/{id}")
 
-    public Classroom getClassroomById(){
+    public ClassroomDTO getclassroombyid(){
         return null;
     }
 
-    @PostMapping("/add")
-    public Classroom addClassroom()
+    @PostMapping("/save")
+    public ClassroomDTO addclassroom()
     {
         return null;
     }
 
     @PutMapping("/update")
-    public Classroom updateClassroom()
+    public ClassroomDTO updateclassroom()
     {
         return null;
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void deleteClassroom()
-    {
-
-    }
+    @DeleteMapping("/remove/{id}")
+    public void deleteclassroom() {}
 
 
 
