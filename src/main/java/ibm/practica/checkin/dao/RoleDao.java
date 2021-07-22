@@ -4,6 +4,7 @@ import ibm.practica.checkin.entity.Role;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -17,12 +18,13 @@ public class RoleDao implements Dao<Role>{
 
     @Override
     public Optional<Role> get(long id) {
-        return Optional.empty();
+        return Optional.ofNullable(entityManager.find(Role.class,id));
     }
 
     @Override
     public List<Role> getAll() {
-        return null;
+        Query query = entityManager.createQuery("select e from Role e");
+        return query.getResultList();
     }
 
     @Override

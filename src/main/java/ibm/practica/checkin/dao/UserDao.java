@@ -4,6 +4,7 @@ import ibm.practica.checkin.entity.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -17,12 +18,13 @@ public class UserDao implements Dao<User>{
 
     @Override
     public Optional<User> get(long id) {
-        return Optional.empty();
+        return Optional.ofNullable(entityManager.find(User.class,id));
     }
 
     @Override
     public List<User> getAll() {
-        return null;
+        Query query = entityManager.createQuery("select e from User e");
+        return query.getResultList();
     }
 
     @Override
