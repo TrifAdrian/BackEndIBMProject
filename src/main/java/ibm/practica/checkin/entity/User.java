@@ -8,10 +8,10 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userid;
+    private Long userId;
 
-    private String first_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
 
     @Column(name = "`year`")
     private Integer year;
@@ -22,37 +22,35 @@ public class User {
     public User() {
     }
 
-    public User(String first_name, String last_name, Integer year, Role role, String department, String section) {
-        this.first_name = first_name;
-        this.last_name = last_name;
+    public User(String firstName, String lastName, Integer year, Role role, String department, String section) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.year = year;
         this.role = role;
         this.department = department;
         this.section = section;
     }
 
-    public Long getUserid() {
-        return userid;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUserid(Long userid) {
-        this.userid = userid;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) { this.firstName = firstName; }
+
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Integer getYear() {

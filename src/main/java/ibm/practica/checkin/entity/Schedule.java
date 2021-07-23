@@ -8,44 +8,44 @@ public class Schedule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long scheduleid;
-    private Long classid;
-    private Long classrid;
+    private Long scheduleId;
+    private Long classId;
+    private Long classroomId;
     private String date;
     private String time;
 
     public Schedule() {
     }
 
-    public Schedule(Long classid, Long classrid, String date, String time) {
-        this.classid = classid;
-        this.classrid = classrid;
+    public Schedule(Long classId, Long classroomId, String date, String time) {
+        this.classId = classId;
+        this.classroomId = classroomId;
         this.date = date;
         this.time = time;
     }
 
-    public Long getScheduleid() {
-        return scheduleid;
+    public Long getScheduleId() {
+        return scheduleId;
     }
 
-    public void setScheduleid(Long scheduleid) {
-        this.scheduleid = scheduleid;
+    public void setScheduleId(Long scheduleId) {
+        this.scheduleId = scheduleId;
     }
 
-    public Long getClassid() {
-        return classid;
+    public Long getClassId() {
+        return classId;
     }
 
-    public void setClassid(Long classid) {
-        this.classid = classid;
+    public void setClassId(Long classId) {
+        this.classId = classId;
     }
 
-    public Long getClassrid() {
-        return classrid;
+    public Long getClassroomId() {
+        return classroomId;
     }
 
-    public void setClassrid(Long classrid) {
-        this.classrid = classrid;
+    public void setClassroomId(Long classroomId) {
+        this.classroomId = classroomId;
     }
 
     public String getDate() {

@@ -10,33 +10,31 @@ public class Class {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long classid;
+    private Long classId;
     private String name;
     private Integer year;
     private String section;
 
-    private Long teacherid;
-    private Long esid;
-    private Long classrid;
+    private Long teacherId;
+    private Long enroleStudentsId;
+    private Long classroomId;
 
     public Class() {
     }
 
-    public Class(String name, Integer year, String section, Long teacherid, Long esid, Long classrid) {
+    public Class(String name, Integer year, String section, Long teacherId, Long enroleStudentsId, Long classroomId) {
         this.name = name;
         this.year = year;
         this.section = section;
-        this.teacherid = teacherid;
-        this.esid = esid;
-        this.classrid = classrid;
+        this.teacherId = teacherId;
+        this.enroleStudentsId = enroleStudentsId;
+        this.classroomId = classroomId;
     }
 
-    public Long getClassid() {
-        return classid;
-    }
+    public Long getClassId() { return classId; }
 
-    public void setClassid(Long classid) {
-        this.classid = classid;
+    public void setClassId(Long classId) {
+        this.classId = classId;
     }
 
     public String getName() {
@@ -63,27 +61,25 @@ public class Class {
         this.section = section;
     }
 
-    public Long getTeacherid() {
-        return teacherid;
+    public Long getTeacherId() {
+        return teacherId;
     }
 
-    public void setTeacherid(Long teacherid) {
-        this.teacherid = teacherid;
+    public void setTeacherId(Long teacherId) {
+        this.teacherId = teacherId;
     }
 
-    public Long getEsid() {
-        return esid;
+    public Long getEnroleStudentsId() { return enroleStudentsId; }
+
+    public void setEnroleStudentsId(Long enroleStudentsId) {
+        this.enroleStudentsId = enroleStudentsId;
     }
 
-    public void setEsid(Long esid) {
-        this.esid = esid;
+    public Long getClassroomId() {
+        return classroomId;
     }
 
-    public Long getClassrid() {
-        return classrid;
-    }
-
-    public void setClassrid(Long classrid) {
-        this.classrid = classrid;
+    public void setClassroomId(Long classroomId) {
+        this.classroomId = classroomId;
     }
 }

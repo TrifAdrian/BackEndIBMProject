@@ -8,27 +8,27 @@ public class Classroom {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    private Long classroomId;
 
     private String location;
     private Integer capacity;
-    private Long featureid;
+    private Long featureId;
 
     public Classroom() {
     }
 
-    public Classroom(String location, Integer capacity, Long featureid) {
+    public Classroom(String location, Integer capacity, Long featureId) {
         this.location = location;
         this.capacity = capacity;
-        this.featureid = featureid;
+        this.featureId = featureId;
     }
 
-    public Long getId() {
-        return id;
+    public Long getClassroomId() {
+        return classroomId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setClassroomId(Long classroomId) {
+        this.classroomId = classroomId;
     }
 
     public String getLocation() {
@@ -47,11 +47,11 @@ public class Classroom {
         this.capacity = capacity;
     }
 
-    public Long getFeatureid() {
-        return featureid;
+    public Long getFeatureId() {
+        return featureId;
     }
 
-    public void setFeatureid(Long featureid) {
-        this.featureid = featureid;
+    public void setFeatureId(Long featureId) {
+        this.featureId = featureId;
     }
 }
