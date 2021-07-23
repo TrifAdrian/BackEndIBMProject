@@ -10,52 +10,33 @@ public class Class {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long classid;
     private String name;
     private Integer year;
     private String section;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private User teacher;
+    private Long teacherid;
+    private Long esid;
+    private Long classrid;
 
-    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.LAZY)
-
-    private List<User> studentList = new ArrayList<>();
-
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private Classroom classroom;
-
-
-    public User getTeacher() {
-        return teacher;
+    public Class() {
     }
 
-    public void setTeacher(User teacher) {
-        this.teacher = teacher;
+    public Class(String name, Integer year, String section, Long teacherid, Long esid, Long classrid) {
+        this.name = name;
+        this.year = year;
+        this.section = section;
+        this.teacherid = teacherid;
+        this.esid = esid;
+        this.classrid = classrid;
     }
 
-    public List<User> getStudentList() {
-        return studentList;
+    public Long getClassid() {
+        return classid;
     }
 
-    public void setStudentList(List<User> studentList) {
-        this.studentList = studentList;
-    }
-
-    public Classroom getClassroom() {
-        return classroom;
-    }
-
-    public void setClassroom(Classroom classroom) {
-        this.classroom = classroom;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setClassid(Long classid) {
+        this.classid = classid;
     }
 
     public String getName() {
@@ -80,5 +61,29 @@ public class Class {
 
     public void setSection(String section) {
         this.section = section;
+    }
+
+    public Long getTeacherid() {
+        return teacherid;
+    }
+
+    public void setTeacherid(Long teacherid) {
+        this.teacherid = teacherid;
+    }
+
+    public Long getEsid() {
+        return esid;
+    }
+
+    public void setEsid(Long esid) {
+        this.esid = esid;
+    }
+
+    public Long getClassrid() {
+        return classrid;
+    }
+
+    public void setClassrid(Long classrid) {
+        this.classrid = classrid;
     }
 }

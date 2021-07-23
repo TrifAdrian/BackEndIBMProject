@@ -8,48 +8,35 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long userid;
 
     private String first_name;
     private String last_name;
 
-    @OneToOne(cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
-    @JoinColumn(name = "role")
-    private Role role;
-
     @Column(name = "`year`")
     private Integer year;
+    private Role role;
     private String department;
     private String section;
-    @Column(name = "`group`")
-    private String group;
 
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn (name = "studentId")
-    private Class aClass;
-
-    public Class getaClass() {
-        return aClass;
+    public User() {
     }
 
-    public void setaClass(Class aClass) {
-        this.aClass = aClass;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
+    public User(String first_name, String last_name, Integer year, Role role, String department, String section) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.year = year;
         this.role = role;
+        this.department = department;
+        this.section = section;
     }
 
-    public Long getId() {
-        return id;
+    public Long getUserid() {
+        return userid;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserid(Long userid) {
+        this.userid = userid;
     }
 
     public String getFirst_name() {
@@ -76,6 +63,14 @@ public class User {
         this.year = year;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public String getDepartment() {
         return department;
     }
@@ -90,13 +85,5 @@ public class User {
 
     public void setSection(String section) {
         this.section = section;
-    }
-
-    public String getGroup() {
-        return group;
-    }
-
-    public void setGroup(String group) {
-        this.group = group;
     }
 }
