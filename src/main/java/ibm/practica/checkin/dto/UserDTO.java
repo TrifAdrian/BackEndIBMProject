@@ -11,11 +11,9 @@ public class UserDTO {
 
     private String first_name;
     private String last_name;
-    private RoleDTO role;
     private Integer year;
     private String department;
     private String section;
-    private String group;
 
     public Long getId() {
         return id;
@@ -39,14 +37,6 @@ public class UserDTO {
 
     public void setLast_name(String last_name) {
         this.last_name = last_name;
-    }
-
-    public RoleDTO getRole() {
-        return role;
-    }
-
-    public void setRole(RoleDTO role) {
-        this.role = role;
     }
 
     public Integer getYear() {
@@ -73,11 +63,4 @@ public class UserDTO {
         this.section = section;
     }
 
-    public String getGroup() {
-        return group;
-    }
-
-    public void setGroup(String group) {
-        this.group = group;
-    }
 }

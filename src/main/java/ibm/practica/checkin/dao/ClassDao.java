@@ -41,11 +41,11 @@ public class ClassDao implements Dao<Class>{
     @Override
     public void update(Class aClass, String[] params) {
 
-        aClass.setName(Objects.requireNonNull(params[0],"Name cannot be null"));
-
-        aClass.setYear(Objects.requireNonNull(parseInt(params[1]),"Year cannot be null"));
-
-        aClass.setSection(Objects.requireNonNull(params[2],"Section cannot be null"));
+//        aClass.setName(Objects.requireNonNull(params[0],"Name cannot be null"));
+//
+//        aClass.setYear(Objects.requireNonNull(parseInt(params[1]),"Year cannot be null"));
+//
+//        aClass.setSection(Objects.requireNonNull(params[2],"Section cannot be null"));
 
 //        aClass.setTeacher(Objects.requireNonNull(parseInt(params[3]),"Teacher cannot be null"));
 //
