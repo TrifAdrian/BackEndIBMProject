@@ -8,24 +8,24 @@ public class Feature {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long featureid;
+    private Long featureId;
     private String name;
-    private Long classrid;
+    private Long classroomId;
 
     public Feature() {
     }
 
-    public Feature(String name, Long classrid) {
+    public Feature(String name, Long classroomId) {
         this.name = name;
-        this.classrid = classrid;
+        this.classroomId = classroomId;
     }
 
-    public Long getFeatureid() {
-        return featureid;
+    public Long getFeatureId() {
+        return featureId;
     }
 
-    public void setFeatureid(Long featureid) {
-        this.featureid = featureid;
+    public void setFeatureId(Long featureId) {
+        this.featureId = featureId;
     }
 
     public String getName() {
@@ -36,11 +36,11 @@ public class Feature {
         this.name = name;
     }
 
-    public Long getClassrid() {
-        return classrid;
+    public Long getClassroomId() {
+        return classroomId;
     }
 
-    public void setClassrid(Long classrid) {
-        this.classrid = classrid;
+    public void setClassroomId(Long classroomId) {
+        this.classroomId = classroomId;
     }
 }

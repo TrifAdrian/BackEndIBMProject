@@ -7,40 +7,39 @@ import javax.persistence.*;
 public class EnroleStudents {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long esid;
-
-    private Long userid;
-    private Long classid;
+    private Long enroleStudentsId;
+    private Long userId;
+    private Long classId;
 
     public EnroleStudents() {
     }
 
-    public EnroleStudents(Long userid, Long classid) {
-        this.userid = userid;
-        this.classid = classid;
+    public EnroleStudents(Long userId, Long classId) {
+        this.userId = userId;
+        this.classId = classId;
     }
 
-    public Long getEsid() {
-        return esid;
+    public Long getEnroleStudentsId() {
+        return enroleStudentsId;
     }
 
-    public void setEsid(Long esid) {
-        this.esid = esid;
+    public void setEnroleStudentsId(Long enroleStudentsId) {
+        this.enroleStudentsId = enroleStudentsId;
     }
 
-    public Long getUserid() {
-        return userid;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUserid(Long userid) {
-        this.userid = userid;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public Long getClassid() {
-        return classid;
+    public Long getClassId() {
+        return classId;
     }
 
-    public void setClassid(Long classid) {
-        this.classid = classid;
+    public void setClassId(Long classId) {
+        this.classId = classId;
     }
 }
