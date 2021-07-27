@@ -1,8 +1,8 @@
 package ibm.practica.checkin.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table
@@ -10,33 +10,89 @@ public class Class {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long classid;
+    private Long id;
     private String name;
     private Integer year;
     private String section;
 
-    private Long teacherid;
-    private Long esid;
-    private Long classrid;
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private List<User> teacher;
+
+    @ManyToMany(mappedBy = "enroledStudents")
+    private Set<User> users;
+
+    @ManyToMany
+    @JoinTable(
+            name = "Repartition",
+            joinColumns =@JoinColumn(name = "classId"),
+            inverseJoinColumns = @JoinColumn(name = "classroomId")
+    )
+    private Set<Classroom> classrooms;
+
+    @Embedded
+    private Schedule schedule;
+
+
+    public Schedule getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
+    }
+
+    public Class(Long id, String name, Integer year, String section, List<User> teacher, Set<User> users, Set<Classroom> classrooms, Schedule schedule) {
+        this.id = id;
+        this.name = name;
+        this.year = year;
+        this.section = section;
+        this.teacher = teacher;
+        this.users = users;
+        this.classrooms = classrooms;
+        this.schedule = schedule;
+    }
+
+    public List<User> getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(List<User> teacher) {
+        this.teacher = teacher;
+    }
+
+    public Set<Classroom> getClassrooms() {
+        return classrooms;
+    }
+
+    public void setClassrooms(Set<Classroom> classrooms) {
+        this.classrooms = classrooms;
+    }
+
+    public Class(Long id, String name, Integer year, String section, List<User> teacher, Set<User> users, Set<Classroom> classrooms) {
+        this.id = id;
+        this.name = name;
+        this.year = year;
+        this.section = section;
+        this.teacher = teacher;
+        this.users = users;
+        this.classrooms = classrooms;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
 
     public Class() {
     }
 
-    public Class(String name, Integer year, String section, Long teacherid, Long esid, Long classrid) {
-        this.name = name;
-        this.year = year;
-        this.section = section;
-        this.teacherid = teacherid;
-        this.esid = esid;
-        this.classrid = classrid;
-    }
+    public Long getId() { return id; }
 
-    public Long getClassid() {
-        return classid;
-    }
-
-    public void setClassid(Long classid) {
-        this.classid = classid;
+    public void setId(Long classId) {
+        this.id = classId;
     }
 
     public String getName() {
@@ -63,27 +119,4 @@ public class Class {
         this.section = section;
     }
 
-    public Long getTeacherid() {
-        return teacherid;
-    }
-
-    public void setTeacherid(Long teacherid) {
-        this.teacherid = teacherid;
-    }
-
-    public Long getEsid() {
-        return esid;
-    }
-
-    public void setEsid(Long esid) {
-        this.esid = esid;
-    }
-
-    public Long getClassrid() {
-        return classrid;
-    }
-
-    public void setClassrid(Long classrid) {
-        this.classrid = classrid;
-    }
 }

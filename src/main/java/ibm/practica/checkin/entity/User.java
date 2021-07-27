@@ -1,6 +1,7 @@
 package ibm.practica.checkin.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table
@@ -8,10 +9,10 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userid;
+    private Long id;
 
-    private String first_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
 
     @Column(name = "`year`")
     private Integer year;
@@ -19,40 +20,80 @@ public class User {
     private String department;
     private String section;
 
+    @ManyToOne()
+    private Class aClass;
+
+    @ManyToMany
+    @JoinTable(
+            name = "EnroledStudents",
+            joinColumns= @JoinColumn(name = "userId"),
+            inverseJoinColumns = @JoinColumn(name = "classId")
+    )
+    private Set<Class> enroledStudents;
+
+    public User(Long id, String firstName, String lastName, Integer year, Role role, String department, String section, Class aClass, Set<Class> enroledStudents) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.year = year;
+        this.role = role;
+        this.department = department;
+        this.section = section;
+        this.aClass = aClass;
+        this.enroledStudents = enroledStudents;
+    }
+
+    public Class getaClass() {
+        return aClass;
+    }
+
+    public void setaClass(Class aClass) {
+        this.aClass = aClass;
+    }
+
+    public Set<Class> getEnroledStudents() {
+        return enroledStudents;
+    }
+
+    public void setEnroledStudents(Set<Class> enroledStudents) {
+        this.enroledStudents = enroledStudents;
+    }
+
     public User() {
     }
 
-    public User(String first_name, String last_name, Integer year, Role role, String department, String section) {
-        this.first_name = first_name;
-        this.last_name = last_name;
+    public User(Long id, String firstName, String lastName, Integer year, Role role, String department, String section) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.year = year;
         this.role = role;
         this.department = department;
         this.section = section;
     }
 
-    public Long getUserid() {
-        return userid;
+
+
+    public Long getId() {
+        return id;
     }
 
-    public void setUserid(Long userid) {
-        this.userid = userid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) { this.firstName = firstName; }
+
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Integer getYear() {
