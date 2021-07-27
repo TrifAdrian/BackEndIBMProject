@@ -1,6 +1,7 @@
 package ibm.practica.checkin.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table
@@ -8,7 +9,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
 
     private String firstName;
     private String lastName;
@@ -19,10 +20,50 @@ public class User {
     private String department;
     private String section;
 
+    @ManyToOne()
+    private Class aClass;
+
+    @ManyToMany
+    @JoinTable(
+            name = "EnroledStudents",
+            joinColumns= @JoinColumn(name = "userId"),
+            inverseJoinColumns = @JoinColumn(name = "classId")
+    )
+    private Set<Class> enroledStudents;
+
+    public User(Long id, String firstName, String lastName, Integer year, Role role, String department, String section, Class aClass, Set<Class> enroledStudents) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.year = year;
+        this.role = role;
+        this.department = department;
+        this.section = section;
+        this.aClass = aClass;
+        this.enroledStudents = enroledStudents;
+    }
+
+    public Class getaClass() {
+        return aClass;
+    }
+
+    public void setaClass(Class aClass) {
+        this.aClass = aClass;
+    }
+
+    public Set<Class> getEnroledStudents() {
+        return enroledStudents;
+    }
+
+    public void setEnroledStudents(Set<Class> enroledStudents) {
+        this.enroledStudents = enroledStudents;
+    }
+
     public User() {
     }
 
-    public User(String firstName, String lastName, Integer year, Role role, String department, String section) {
+    public User(Long id, String firstName, String lastName, Integer year, Role role, String department, String section) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.year = year;
@@ -31,12 +72,14 @@ public class User {
         this.section = section;
     }
 
-    public Long getUserId() {
-        return userId;
+
+
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {

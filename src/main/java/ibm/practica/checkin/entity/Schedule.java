@@ -1,66 +1,40 @@
 package ibm.practica.checkin.entity;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
 
-@Entity
-@Table
+@Embeddable
 public class Schedule {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long scheduleId;
-    private Long classId;
-    private Long classroomId;
-    private String date;
-    private String time;
+    private LocalDate localDate;
+
+    @OneToMany
+    private List<Class> classes;
+
+    public Schedule(LocalDate localDate, List<Class> classes) {
+        this.localDate = localDate;
+        this.classes = classes;
+    }
 
     public Schedule() {
+
     }
 
-    public Schedule(Long classId, Long classroomId, String date, String time) {
-        this.classId = classId;
-        this.classroomId = classroomId;
-        this.date = date;
-        this.time = time;
+    public List<Class> getClasses() {
+        return classes;
     }
 
-    public Long getScheduleId() {
-        return scheduleId;
+    public void setClasses(List<Class> classes) {
+        this.classes = classes;
     }
 
-    public void setScheduleId(Long scheduleId) {
-        this.scheduleId = scheduleId;
+    public LocalDate getLocalDate() {
+        return localDate;
     }
 
-    public Long getClassId() {
-        return classId;
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
     }
 
-    public void setClassId(Long classId) {
-        this.classId = classId;
-    }
-
-    public Long getClassroomId() {
-        return classroomId;
-    }
-
-    public void setClassroomId(Long classroomId) {
-        this.classroomId = classroomId;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
 }

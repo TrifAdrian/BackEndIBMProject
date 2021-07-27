@@ -1,34 +1,60 @@
 package ibm.practica.checkin.entity;
 
+import org.hibernate.annotations.LazyCollection;
+
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table
 public class Classroom {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long classroomId;
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String location;
     private Integer capacity;
-    private Long featureId;
+
+    @ElementCollection
+    @CollectionTable
+    private List<Feature> features;
+
+    public Classroom(Long id, String location, Integer capacity, List<Feature> features) {
+        this.id = id;
+        this.location = location;
+        this.capacity = capacity;
+        this.features = features;
+    }
+
+    @ManyToMany(mappedBy = "classrooms")
+    private Set<Class> classes;
+
+    public Set<Class> getClasses() {
+        return classes;
+    }
+
+    public void setClasses(Set<Class> classes) {
+        this.classes = classes;
+    }
+
+    public Classroom(Long id, String location, Integer capacity, List<Feature> features, Set<Class> classes) {
+        this.id = id;
+        this.location = location;
+        this.capacity = capacity;
+        this.features = features;
+        this.classes = classes;
+    }
 
     public Classroom() {
     }
 
-    public Classroom(String location, Integer capacity, Long featureId) {
-        this.location = location;
-        this.capacity = capacity;
-        this.featureId = featureId;
+    public Long getId() {
+        return id;
     }
 
-    public Long getClassroomId() {
-        return classroomId;
-    }
-
-    public void setClassroomId(Long classroomId) {
-        this.classroomId = classroomId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getLocation() {
@@ -47,11 +73,11 @@ public class Classroom {
         this.capacity = capacity;
     }
 
-    public Long getFeatureId() {
-        return featureId;
+    public List<Feature> getFeatures() {
+        return features;
     }
 
-    public void setFeatureId(Long featureId) {
-        this.featureId = featureId;
+    public void setFeatures(List<Feature> features) {
+        this.features = features;
     }
 }
