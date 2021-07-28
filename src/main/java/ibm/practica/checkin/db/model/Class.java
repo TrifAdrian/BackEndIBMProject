@@ -19,7 +19,7 @@ public class Class {
     private List<User> teacher;
 
     @ManyToMany(mappedBy = "enroledStudents")
-    private Set<User> users;
+    private Set<User> students;
 
     @ManyToMany
     @JoinTable(
@@ -35,13 +35,13 @@ public class Class {
     public Class() {
     }
 
-    public Class(Long id, String name, Integer year, String section, List<User> teacher, Set<User> users, Set<Classroom> classrooms, List<Schedule> classDates) {
+    public Class(Long id, String name, Integer year, String section, List<User> teacher, Set<User> students, Set<Classroom> classrooms, List<Schedule> classDates) {
         this.id = id;
         this.name = name;
         this.year = year;
         this.section = section;
         this.teacher = teacher;
-        this.users = users;
+        this.students = students;
         this.classrooms = classrooms;
         this.classDates = classDates;
     }
@@ -70,12 +70,12 @@ public class Class {
         this.classrooms = classrooms;
     }
 
-    public Set<User> getUsers() {
-        return users;
+    public Set<User> getStudents() {
+        return students;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setStudents(Set<User> students) {
+        this.students = students;
     }
 
     public Long getId() { return id; }

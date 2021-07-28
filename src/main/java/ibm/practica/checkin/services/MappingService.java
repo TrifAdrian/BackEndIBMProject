@@ -1,2 +1,4 @@
-package ibm.practica.checkin.services;public interface MappingService {
+package ibm.practica.checkin.services;
+
+public interface MappingService {
 }
