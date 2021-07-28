@@ -15,7 +15,7 @@ public class Class {
     private Integer year;
     private String section;
 
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "aClass")
     private List<User> teacher;
 
     @ManyToMany(mappedBy = "enroledStudents")
@@ -29,19 +29,13 @@ public class Class {
     )
     private Set<Classroom> classrooms;
 
-    @Embedded
-    private Schedule schedule;
+    @OneToMany(mappedBy="aClass")
+    private List<Schedule> classDates;
 
-
-    public Schedule getSchedule() {
-        return schedule;
+    public Class() {
     }
 
-    public void setSchedule(Schedule schedule) {
-        this.schedule = schedule;
-    }
-
-    public Class(Long id, String name, Integer year, String section, List<User> teacher, Set<User> users, Set<Classroom> classrooms, Schedule schedule) {
+    public Class(Long id, String name, Integer year, String section, List<User> teacher, Set<User> users, Set<Classroom> classrooms, List<Schedule> classDates) {
         this.id = id;
         this.name = name;
         this.year = year;
@@ -49,7 +43,15 @@ public class Class {
         this.teacher = teacher;
         this.users = users;
         this.classrooms = classrooms;
-        this.schedule = schedule;
+        this.classDates = classDates;
+    }
+
+    public List<Schedule> getClassDates() {
+        return classDates;
+    }
+
+    public void setClassDates(List<Schedule> classDates) {
+        this.classDates = classDates;
     }
 
     public List<User> getTeacher() {
@@ -68,25 +70,12 @@ public class Class {
         this.classrooms = classrooms;
     }
 
-    public Class(Long id, String name, Integer year, String section, List<User> teacher, Set<User> users, Set<Classroom> classrooms) {
-        this.id = id;
-        this.name = name;
-        this.year = year;
-        this.section = section;
-        this.teacher = teacher;
-        this.users = users;
-        this.classrooms = classrooms;
-    }
-
     public Set<User> getUsers() {
         return users;
     }
 
     public void setUsers(Set<User> users) {
         this.users = users;
-    }
-
-    public Class() {
     }
 
     public Long getId() { return id; }

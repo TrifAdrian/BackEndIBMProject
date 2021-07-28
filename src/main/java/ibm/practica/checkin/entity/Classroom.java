@@ -16,27 +16,11 @@ public class Classroom {
     private String location;
     private Integer capacity;
 
-    @ElementCollection
-    @CollectionTable
+    @OneToMany(mappedBy = "classroom")
     private List<Feature> features;
-
-    public Classroom(Long id, String location, Integer capacity, List<Feature> features) {
-        this.id = id;
-        this.location = location;
-        this.capacity = capacity;
-        this.features = features;
-    }
 
     @ManyToMany(mappedBy = "classrooms")
     private Set<Class> classes;
-
-    public Set<Class> getClasses() {
-        return classes;
-    }
-
-    public void setClasses(Set<Class> classes) {
-        this.classes = classes;
-    }
 
     public Classroom(Long id, String location, Integer capacity, List<Feature> features, Set<Class> classes) {
         this.id = id;
@@ -47,6 +31,14 @@ public class Classroom {
     }
 
     public Classroom() {
+    }
+
+    public Set<Class> getClasses() {
+        return classes;
+    }
+
+    public void setClasses(Set<Class> classes) {
+        this.classes = classes;
     }
 
     public Long getId() {

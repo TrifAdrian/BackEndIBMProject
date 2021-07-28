@@ -31,6 +31,9 @@ public class User {
     )
     private Set<Class> enroledStudents;
 
+    public User() {
+    }
+
     public User(Long id, String firstName, String lastName, Integer year, Role role, String department, String section, Class aClass, Set<Class> enroledStudents) {
         this.id = id;
         this.firstName = firstName;
@@ -41,13 +44,6 @@ public class User {
         this.section = section;
         this.aClass = aClass;
         this.enroledStudents = enroledStudents;
-    }
-
-    public Class getaClass() {
-        return aClass;
-    }
-
-    public void setaClass(Class aClass) {
         this.aClass = aClass;
     }
 
@@ -58,21 +54,6 @@ public class User {
     public void setEnroledStudents(Set<Class> enroledStudents) {
         this.enroledStudents = enroledStudents;
     }
-
-    public User() {
-    }
-
-    public User(Long id, String firstName, String lastName, Integer year, Role role, String department, String section) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.year = year;
-        this.role = role;
-        this.department = department;
-        this.section = section;
-    }
-
-
 
     public Long getId() {
         return id;
