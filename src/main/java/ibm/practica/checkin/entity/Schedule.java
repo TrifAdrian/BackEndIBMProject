@@ -2,31 +2,43 @@ package ibm.practica.checkin.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
-@Embeddable
+@Entity
 public class Schedule {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private LocalDate localDate;
 
-    @OneToMany
-    private List<Class> classes;
-
-    public Schedule(LocalDate localDate, List<Class> classes) {
-        this.localDate = localDate;
-        this.classes = classes;
-    }
+    @ManyToOne
+    private Class aClass;
 
     public Schedule() {
 
     }
 
-    public List<Class> getClasses() {
-        return classes;
+    public Schedule(Long id, LocalDate localDate, Class aClass) {
+        this.id = id;
+        this.localDate = localDate;
+        this.aClass = aClass;
     }
 
-    public void setClasses(List<Class> classes) {
-        this.classes = classes;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Class getaClass() {
+        return aClass;
+    }
+
+    public void setaClass(Class aClass) {
+        this.aClass = aClass;
     }
 
     public LocalDate getLocalDate() {
