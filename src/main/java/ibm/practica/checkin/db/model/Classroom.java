@@ -1,6 +1,4 @@
-package ibm.practica.checkin.entity;
-
-import org.hibernate.annotations.LazyCollection;
+package ibm.practica.checkin.db.model;
 
 import javax.persistence.*;
 import java.util.List;
