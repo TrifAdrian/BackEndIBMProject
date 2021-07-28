@@ -1,4 +1,4 @@
-package ibm.practica.checkin.entity;
+package ibm.practica.checkin.db.model;
 
 public enum Role {
     GUEST,
