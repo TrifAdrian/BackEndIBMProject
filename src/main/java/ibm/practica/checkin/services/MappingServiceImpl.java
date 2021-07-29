@@ -1,18 +1,25 @@
 package ibm.practica.checkin.services;
 
-import ibm.practica.checkin.db.model.*;
-import ibm.practica.checkin.db.model.Class;
-import ibm.practica.checkin.domain.model.*;
+
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+
+import ibm.practica.checkin.db.model.Class;
+import ibm.practica.checkin.db.model.Classroom;
+import ibm.practica.checkin.db.model.Feature;
+import ibm.practica.checkin.domain.model.ClassDto;
+import ibm.practica.checkin.domain.model.ClassroomDto;
+import ibm.practica.checkin.domain.model.FeatureDto;
+
 
 public class MappingServiceImpl implements MappingService{
 
 
     @Override
     public Classroom ClassroomDtoToEntity(ClassroomDto classroomDto) {
+
         Classroom classroom = new Classroom();
         classroom.setName(classroomDto.getName());
         classroom.setLocation(classroomDto.getLocation());
@@ -34,10 +41,12 @@ public class MappingServiceImpl implements MappingService{
             features_list.add(FeatureDtotoEntity(feature));
         }
         return features_list;
-    }
 
+
+    
     @Override
     public ClassroomDto EntityToClassroomDto(Classroom classroom) {
+
         List<FeatureDto> featureDtoList = getFeatureDtoList(classroom);
 
         return new ClassroomDto(classroom.getName(), classroom.getLocation(), classroom.getCapacity(), featureDtoList);
@@ -52,10 +61,13 @@ public class MappingServiceImpl implements MappingService{
             featureDtoList.add(EntityToFeatureDto(f));
         }
         return featureDtoList;
+
+
     }
 
     @Override
     public Class ClassDtoToEntity(ClassDto classDto) {
+
         Class aClass = new Class();
 
         aClass.setName(classDto.getName());
@@ -109,7 +121,6 @@ public class MappingServiceImpl implements MappingService{
         return classrooms;
     }
 
-
     @Override
     public ClassDto EntityToClassDto(Class aClass) {
         return null;
@@ -124,7 +135,9 @@ public class MappingServiceImpl implements MappingService{
 
     @Override
     public FeatureDto EntityToFeatureDto(Feature feature) {
-        return null;
+        FeatureDto featureDto = new FeatureDto();
+        featureDto.setName(feature.getName());
+        return featureDto;
     }
 
     @Override
@@ -141,5 +154,6 @@ public class MappingServiceImpl implements MappingService{
         schedule.setLocalDate(scheduleDto.getDate());
         return schedule;
     }
+
 }
 
