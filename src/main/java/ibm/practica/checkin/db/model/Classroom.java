@@ -13,6 +13,7 @@ public class Classroom {
     private Long id;
     private String location;
     private Integer capacity;
+    private String name;
 
     @OneToMany(mappedBy = "classroom")
     private List<Feature> features;
@@ -20,15 +21,24 @@ public class Classroom {
     @ManyToMany(mappedBy = "classrooms")
     private Set<Class> classes;
 
-    public Classroom(Long id, String location, Integer capacity, List<Feature> features, Set<Class> classes) {
+    public Classroom(Long id, String location, Integer capacity, String name, List<Feature> features, Set<Class> classes) {
         this.id = id;
         this.location = location;
         this.capacity = capacity;
+        this.name = name;
         this.features = features;
         this.classes = classes;
     }
 
     public Classroom() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Set<Class> getClasses() {
