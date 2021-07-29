@@ -1,6 +1,7 @@
 package ibm.practica.checkin.services;
 
 import ibm.practica.checkin.db.model.Class;
+import ibm.practica.checkin.db.model.User;
 import ibm.practica.checkin.db.repository.ClassRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,28 +14,36 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
     private ClassRepository classRepository;
 
     @Override
+    public Class updateStudentList(Long id, List<User> students) {
+        Optional<Class> updateClass = classRepository.findById(id);
+        //return classRepository.save(updateClass);
+        return null;
+    }
+
+    @Override
     public Optional<Class> findClass(Long id) {
-        return Optional.empty();
+        return classRepository.findById(id);
     }
 
     @Override
     public List<Class> getAllClasses() {
-        return null;
+        return classRepository.findAll();
     }
 
     @Override
     public Class updateClass(Class aClass) {
-        return null;
+        return classRepository.save(aClass);
     }
 
     @Override
     public void deleteClass(Long id) {
-
+        classRepository.deleteById(id);
     }
 
     @Override
     public Long persistClass(Class aClass) {
-        return null;
+        Class savedClass =classRepository.save(aClass);
+        return savedClass.getId();
     }
 
 

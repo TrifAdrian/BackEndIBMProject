@@ -2,6 +2,7 @@ package ibm.practica.checkin.services;
 
 import ibm.practica.checkin.db.model.Class;
 import ibm.practica.checkin.db.model.Classroom;
+import ibm.practica.checkin.db.model.User;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,5 +13,6 @@ public interface ClassPersistenceService {
      List<Class> getAllClasses();
      Class updateClass(Class aClass);
      void deleteClass(Long id);
+     Class updateStudentList(Long id,List<User> students);
 
 }
