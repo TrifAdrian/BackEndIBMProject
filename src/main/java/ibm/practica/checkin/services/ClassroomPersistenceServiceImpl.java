@@ -14,21 +14,27 @@ public class ClassroomPersistenceServiceImpl implements ClassroomPersistenceServ
 
     @Override
     public Optional<Classroom> findClassroom(Long id) {
-        return Optional.empty();
+        return classroomRepository.findById(id);
     }
 
     @Override
     public List<Classroom> getAllClassroom() {
-        return null;
+        return classroomRepository.findAll();
     }
 
     @Override
     public void deleteClassroom(Long id) {
+        classroomRepository.deleteById(id);
+    }
 
+    @Override
+    public Classroom updateClassroom(Classroom classroom) {
+        return classroomRepository.save(classroom);
     }
 
     @Override
     public Long persistClassroom(Classroom classroom) {
-        return null;
+        Classroom savedClassroom = classroomRepository.save(classroom);
+        return savedClassroom.getId();
     }
 }

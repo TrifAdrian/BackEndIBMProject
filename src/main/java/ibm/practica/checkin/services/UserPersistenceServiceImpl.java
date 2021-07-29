@@ -13,11 +13,12 @@ public class UserPersistenceServiceImpl implements UserPersistenceService{
 
     @Override
     public Long persistUser(User user) {
-        return null;
+        User savedUser = userRepository.save(user);
+        return savedUser.getId();
     }
 
     @Override
     public Optional<User> findUser(Long id) {
-        return Optional.empty();
+        return userRepository.findById(id);
     }
 }

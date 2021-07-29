@@ -11,6 +11,7 @@ public class SchedulePersistenceServiceImpl implements SchedulePersistenceServic
 
     @Override
     public Long persistSchedule(Schedule schedule) {
-        return null;
+        Schedule savedSchedule = scheduleRepository.save(schedule);
+        return savedSchedule.getId();
     }
 }
