@@ -5,6 +5,6 @@ import ibm.practica.checkin.db.model.Feature;
 public interface FeaturePersistenceService {
 
     Long persistFeature(Feature feature);
-    void deleteFeature();
+    void deleteFeature(Long id);
 
 }

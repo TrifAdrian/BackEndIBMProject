@@ -11,11 +11,12 @@ public class FeaturePersistenceServiceImpl implements FeaturePersistenceService{
 
     @Override
     public Long persistFeature(Feature feature) {
-        return null;
+        Feature savedFeature = featureRepository.save(feature);
+        return savedFeature.getId();
     }
 
     @Override
-    public void deleteFeature() {
-
+    public void deleteFeature(Long id) {
+        featureRepository.deleteById(id);
     }
 }
