@@ -2,6 +2,8 @@ package ibm.practica.checkin.facade;
 
 import ibm.practica.checkin.db.model.Class;
 import ibm.practica.checkin.domain.model.ClassDto;
+import ibm.practica.checkin.domain.model.ClassEnrollStudent;
+import ibm.practica.checkin.domain.model.StudentDetails;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -50,5 +52,13 @@ public interface ClassController {
             @ApiResponse(responseCode = "404", description = "Id not found", content = @Content),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
     void delete (Long id);
+
+    @Operation(summary = "Adds a new student to the student list")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Updated successfully", content = {
+                    @Content(mediaType = "application/json",schema = @Schema(implementation = Class.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
+    ClassEnrollStudent enrolToClass (ClassEnrollStudent classEnrollStudent);
+
 
 }
