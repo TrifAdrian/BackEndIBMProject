@@ -142,7 +142,7 @@ public class Class {
                 ", year=" + year +
                 ", section='" + section + '\'' +
                 ", teacher=" + teacher +
-                ", users=" + users +
+                ", students=" + students +
                 ", classrooms=" + classrooms +
                 ", classDates=" + classDates +
                 '}';
