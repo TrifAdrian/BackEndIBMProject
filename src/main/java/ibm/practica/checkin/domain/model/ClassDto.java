@@ -8,14 +8,14 @@ public final class ClassDto {
     private Integer year;
     private String section;
 
-    private List<ClassroomDto> classroom;
-    private List<UserFullName> teacher;
+    private ClassroomDto classroom;
+    private UserFullName teacher;
     private List<ScheduleDto> dateList;
 
     public ClassDto() {
     }
 
-    public ClassDto(String name, Integer year, String section, List<ClassroomDto> classroom, List<UserFullName> teacher, List<ScheduleDto> dateList) {
+    public ClassDto(String name, Integer year, String section, ClassroomDto classroom, UserFullName teacher, List<ScheduleDto> dateList) {
         this.name = name;
         this.year = year;
         this.section = section;
@@ -56,19 +56,19 @@ public final class ClassDto {
         this.section = section;
     }
 
-    public List<ClassroomDto> getClassroom() {
+    public ClassroomDto getClassroom() {
         return classroom;
     }
 
-    public void setClassroom(List<ClassroomDto> classroom) {
+    public void setClassroom(ClassroomDto classroom) {
         this.classroom = classroom;
     }
 
-    public List<UserFullName> getTeacher() {
+    public UserFullName getTeacher() {
         return teacher;
     }
 
-    public void setTeacher(List<UserFullName> teacher) {
+    public void setTeacher(UserFullName teacher) {
         this.teacher = teacher;
     }
 }
