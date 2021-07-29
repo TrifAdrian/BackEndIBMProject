@@ -23,6 +23,11 @@ public class ClassroomPersistenceServiceImpl implements ClassroomPersistenceServ
     }
 
     @Override
+    public void deleteClassroom(Long id) {
+
+    }
+
+    @Override
     public Long persistClassroom(Classroom classroom) {
         return null;
     }

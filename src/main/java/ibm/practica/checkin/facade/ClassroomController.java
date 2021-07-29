@@ -36,5 +36,20 @@ public interface ClassroomController {
             @ApiResponse(responseCode = "404", description = "No classroom found", content = @Content) })
     List<ClassroomDto> getAllClassroom();
 
+    @Operation(summary = "Edits classroom details")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Classroom updated successfully", content = {
+                    @Content(mediaType = "application/json",schema = @Schema(implementation = Classroom.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
+    ClassroomDto update(ClassroomDto classroomDto);
+
+    @Operation(summary = "Delete classroom")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Deleted succesfully", content = {
+                    @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", description = "Id not found", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
+    void delete (Long id);
+
 
 }

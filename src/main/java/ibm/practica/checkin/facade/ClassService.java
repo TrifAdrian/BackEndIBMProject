@@ -11,6 +11,18 @@ import java.util.Optional;
 @RequestMapping("/class")
 public class ClassService implements ClassController{
 
+    @PutMapping
+    @Override
+    public ClassDto updateClass(@RequestBody ClassDto classDto) {
+        return null;
+    }
+
+    @Override
+    @DeleteMapping("/{id}")
+    public void delete(Long id) {
+
+    }
+
     @PostMapping()
     @Override
     @ResponseStatus(HttpStatus.CREATED)

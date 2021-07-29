@@ -13,4 +13,9 @@ public class FeaturePersistenceServiceImpl implements FeaturePersistenceService{
     public Long persistFeature(Feature feature) {
         return null;
     }
+
+    @Override
+    public void deleteFeature() {
+
+    }
 }

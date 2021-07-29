@@ -23,7 +23,19 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
     }
 
     @Override
+    public Class updateClass(Class aClass) {
+        return null;
+    }
+
+    @Override
+    public void deleteClass(Long id) {
+
+    }
+
+    @Override
     public Long persistClass(Class aClass) {
         return null;
     }
+
+
 }

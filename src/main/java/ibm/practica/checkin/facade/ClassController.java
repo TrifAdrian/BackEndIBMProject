@@ -35,4 +35,20 @@ public interface ClassController {
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content),
             @ApiResponse(responseCode = "404", description = "No class found", content = @Content) })
     List<ClassDto> getAllClasses();
+
+    @Operation(summary = "updates the information of a class")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Updated successfully", content = {
+                    @Content(mediaType = "application/json",schema = @Schema(implementation = Class.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
+    ClassDto updateClass(ClassDto classDto);
+
+    @Operation(summary = "Delete class")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Deleted class succesfully", content = {
+                    @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", description = "Id not found", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
+    void delete (Long id);
+
 }

@@ -2,15 +2,15 @@ package ibm.practica.checkin.domain.model;
 
 
 
-public final class UserDto {
+public final class UserFullName {
 
     private String firstName;
     private String lastName;
 
-    public UserDto() {
+    public UserFullName() {
     }
 
-    public UserDto(String firstName, String lastName) {
+    public UserFullName(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }

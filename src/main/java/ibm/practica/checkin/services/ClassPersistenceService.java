@@ -10,5 +10,7 @@ public interface ClassPersistenceService {
      Long persistClass(Class aClass);
      Optional<Class> findClass(Long id);
      List<Class> getAllClasses();
+     Class updateClass(Class aClass);
+     void deleteClass(Long id);
 
 }

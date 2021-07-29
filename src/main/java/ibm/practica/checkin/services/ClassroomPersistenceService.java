@@ -10,7 +10,7 @@ public interface ClassroomPersistenceService {
     Long persistClassroom(Classroom classroom);
     Optional<Classroom> findClassroom(Long id);
     List<Classroom> getAllClassroom();
-
+    void deleteClassroom(Long id);
 
 
 }

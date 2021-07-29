@@ -9,13 +9,13 @@ public final class ClassDto {
     private String section;
 
     private ClassroomDto classroom;
-    private UserDto teacher;
+    private UserFullName teacher;
     private List<ScheduleDto> dateList;
 
     public ClassDto() {
     }
 
-    public ClassDto(String name, Integer year, String section, ClassroomDto classroom, UserDto teacher, List<ScheduleDto> dateList) {
+    public ClassDto(String name, Integer year, String section, ClassroomDto classroom, UserFullName teacher, List<ScheduleDto> dateList) {
         this.name = name;
         this.year = year;
         this.section = section;
@@ -64,11 +64,11 @@ public final class ClassDto {
         this.classroom = classroom;
     }
 
-    public UserDto getTeacher() {
+    public UserFullName getTeacher() {
         return teacher;
     }
 
-    public void setTeacher(UserDto teacher) {
+    public void setTeacher(UserFullName teacher) {
         this.teacher = teacher;
     }
 }
