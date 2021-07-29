@@ -117,7 +117,9 @@ public class MappingServiceImpl implements MappingService{
 
     @Override
     public Feature FeatureDtotoEntity(FeatureDto featureDto) {
-        return null;
+        Feature feature =  new Feature();
+        feature.setName(featureDto.getName());
+        return feature;
     }
 
     @Override
@@ -127,12 +129,17 @@ public class MappingServiceImpl implements MappingService{
 
     @Override
     public User UserFullNameToEntity(UserFullName userFullName) {
-        return null;
+        User user = new User();
+        user.setFirstName(userFullName.getFirstName());
+        user.setLastName(userFullName.getLastName());
+        return user;
     }
 
     @Override
     public Schedule ScheduleDtoToEntity(ScheduleDto scheduleDto) {
-        return null;
+        Schedule schedule = new Schedule();
+        schedule.setLocalDate(scheduleDto.getDate());
+        return schedule;
     }
 }
 
