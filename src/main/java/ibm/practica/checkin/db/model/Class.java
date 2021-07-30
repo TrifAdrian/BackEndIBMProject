@@ -16,8 +16,8 @@ public class Class {
     private Integer year;
     private String section;
 
-    @OneToMany(mappedBy = "aClass")
-    private List<User> teacher;
+//    @OneToMany(mappedBy = "aClass")
+//    private List<User> teacher;
 
     @ManyToMany(mappedBy = "enroledStudents")
     private Set<User> students;
@@ -33,6 +33,9 @@ public class Class {
     @OneToMany(mappedBy="aClass")
     private List<Schedule> classDates;
 
+    @ManyToOne
+    private User teacher;
+
     public Class() {
     }
 
@@ -41,7 +44,7 @@ public class Class {
         this.name = name;
         this.year = year;
         this.section = section;
-        this.teacher = teacher;
+        //this.teacher = teacher;
         this.students = students;
         this.classrooms = classrooms;
         this.classDates = classDates;
@@ -55,13 +58,13 @@ public class Class {
         this.classDates = classDates;
     }
 
-    public List<User> getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(List<User> teacher) {
-        this.teacher = teacher;
-    }
+//    public List<User> getTeacher() {
+//        return teacher;
+//    }
+//
+//    public void setTeacher(List<User> teacher) {
+//        this.teacher = teacher;
+//    }
 
     public Set<Classroom> getClassrooms() {
         return classrooms;

@@ -1,6 +1,7 @@
 package ibm.practica.checkin.db.model;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,8 +21,12 @@ public class User {
     private String department;
     private String section;
 
-    @ManyToOne()
-    private Class aClass;
+//    @ManyToOne()
+//    @JoinColumn(name = "classId")
+//    private Class aClass;
+
+    @OneToMany(mappedBy = "teacher")
+    private List<Class> classes;
 
     @ManyToMany
     @JoinTable(
@@ -42,9 +47,8 @@ public class User {
         this.role = role;
         this.department = department;
         this.section = section;
-        this.aClass = aClass;
         this.enroledStudents = enroledStudents;
-        this.aClass = aClass;
+       // this.aClass = aClass;
     }
 
     public Set<Class> getEnroledStudents() {
@@ -134,18 +138,18 @@ public class User {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", year=" + year +
-                ", role=" + role +
-                ", department='" + department + '\'' +
-                ", section='" + section + '\'' +
-                ", aClass=" + aClass +
-                ", enroledStudents=" + enroledStudents +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "User{" +
+//                "id=" + id +
+//                ", firstName='" + firstName + '\'' +
+//                ", lastName='" + lastName + '\'' +
+//                ", year=" + year +
+//                ", role=" + role +
+//                ", department='" + department + '\'' +
+//                ", section='" + section + '\'' +
+//                ", aClass=" + aClass +
+//                ", enroledStudents=" + enroledStudents +
+//                '}';
+//    }
 }

@@ -18,14 +18,14 @@ public interface ClassController {
     @Operation(summary = "Add a class to the database")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "The class was added", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = Class.class)) }),
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = ClassDto.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
     Long createClass(ClassDto classDto);
 
     @Operation(summary = "Find a class by a certain id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "The class was found", content = {
-                    @Content(mediaType = "application/json",schema = @Schema(implementation = Class.class)) }),
+                    @Content(mediaType = "application/json",schema = @Schema(implementation = ClassDto.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content),
             @ApiResponse(responseCode = "404", description = "No class found", content = @Content) })
     Optional<ClassDto> findClass(Long id);
@@ -33,7 +33,7 @@ public interface ClassController {
     @Operation(summary = "Get all classes")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "All the classes were returned", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = Class.class)) }),
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = ClassDto.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content),
             @ApiResponse(responseCode = "404", description = "No class found", content = @Content) })
     List<ClassDto> getAllClasses();
@@ -41,7 +41,7 @@ public interface ClassController {
     @Operation(summary = "updates the information of a class")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Updated successfully", content = {
-                    @Content(mediaType = "application/json",schema = @Schema(implementation = Class.class)) }),
+                    @Content(mediaType = "application/json",schema = @Schema(implementation = ClassDto.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
     ClassDto updateClass(ClassDto classDto);
 
@@ -56,7 +56,7 @@ public interface ClassController {
     @Operation(summary = "Adds a new student to the student list")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Updated successfully", content = {
-                    @Content(mediaType = "application/json",schema = @Schema(implementation = Class.class)) }),
+                    @Content(mediaType = "application/json",schema = @Schema(implementation = ClassDto.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
     ClassEnrollStudent enrolToClass (ClassEnrollStudent classEnrollStudent);
 

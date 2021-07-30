@@ -13,6 +13,7 @@ public class Schedule {
     private LocalDate localDate;
 
     @ManyToOne
+    @JoinColumn(name = "classId")
     private Class aClass;
 
     public Schedule() {
