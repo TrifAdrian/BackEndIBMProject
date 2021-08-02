@@ -15,10 +15,10 @@ public class Classroom {
     private Integer capacity;
     private String name;
 
-    @OneToMany(mappedBy = "classroom")
+    @OneToMany(mappedBy = "classroom",cascade = CascadeType.ALL)
     private List<Feature> features;
 
-    @ManyToMany(mappedBy = "classrooms")
+    @ManyToMany(mappedBy = "classrooms",cascade = CascadeType.ALL)
     private Set<Class> classes;
 
     public Classroom(Long id, String location, Integer capacity, String name, List<Feature> features, Set<Class> classes) {

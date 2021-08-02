@@ -19,10 +19,10 @@ public class Class {
 //    @OneToMany(mappedBy = "aClass")
 //    private List<User> teacher;
 
-    @ManyToMany(mappedBy = "enroledStudents")
+    @ManyToMany(mappedBy = "enroledStudents",cascade = CascadeType.ALL)
     private Set<User> students;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "Repartition",
             joinColumns =@JoinColumn(name = "classId"),
@@ -30,10 +30,10 @@ public class Class {
     )
     private Set<Classroom> classrooms;
 
-    @OneToMany(mappedBy="aClass")
+    @OneToMany(mappedBy="aClass",cascade = CascadeType.ALL)
     private List<Schedule> classDates;
 
-    @ManyToOne
+    @ManyToOne()
     private User teacher;
 
     public Class() {

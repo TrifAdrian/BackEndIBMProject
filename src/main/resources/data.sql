@@ -33,8 +33,6 @@ insert into schedule values (4,'2021-04-24',1);
 insert into schedule values (5,'2021-04-22',4);
 
 
-
-
 insert into enroled_students values (1,1);
 insert into enroled_students values (1,2);
 insert into enroled_students values (3,1);

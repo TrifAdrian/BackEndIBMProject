@@ -25,10 +25,10 @@ public class User {
 //    @JoinColumn(name = "classId")
 //    private Class aClass;
 
-    @OneToMany(mappedBy = "teacher")
+    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL)
     private List<Class> classes;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinTable(
             name = "EnroledStudents",
             joinColumns= @JoinColumn(name = "userId"),

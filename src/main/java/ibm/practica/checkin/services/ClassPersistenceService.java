@@ -3,9 +3,11 @@ package ibm.practica.checkin.services;
 import ibm.practica.checkin.db.model.Class;
 import ibm.practica.checkin.db.model.Classroom;
 import ibm.practica.checkin.db.model.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 
 public interface ClassPersistenceService {
      Long persistClass(Class aClass);
