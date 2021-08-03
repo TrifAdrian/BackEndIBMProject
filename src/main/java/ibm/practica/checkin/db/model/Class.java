@@ -19,14 +19,33 @@ public class Class {
 //    @OneToMany(mappedBy = "aClass")
 //    private List<User> teacher;
 
-    @ManyToMany(mappedBy = "enroledStudents",cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH
+    },fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "EnroledStudents",
+            joinColumns= @JoinColumn(name = "classId"),
+            inverseJoinColumns = @JoinColumn(name = "userId"),
+            foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
+            inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
+    )
     private Set<User> students;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH
+    },fetch = FetchType.LAZY)
     @JoinTable(
             name = "Repartition",
             joinColumns =@JoinColumn(name = "classId"),
-            inverseJoinColumns = @JoinColumn(name = "classroomId")
+            inverseJoinColumns = @JoinColumn(name = "classroomId"),
+            foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
+            inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
     )
     private Set<Classroom> classrooms;
 

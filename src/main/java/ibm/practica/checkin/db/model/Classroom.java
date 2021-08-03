@@ -18,7 +18,19 @@ public class Classroom {
     @OneToMany(mappedBy = "classroom",cascade = CascadeType.ALL)
     private List<Feature> features;
 
-    @ManyToMany(mappedBy = "classrooms",cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH
+    },fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "Repartition",
+            joinColumns =@JoinColumn(name = "classroomId"),
+            inverseJoinColumns = @JoinColumn(name = "classId"),
+            foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
+            inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
+    )
     private Set<Class> classes;
 
     public Classroom(Long id, String location, Integer capacity, String name, List<Feature> features, Set<Class> classes) {

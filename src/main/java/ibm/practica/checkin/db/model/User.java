@@ -25,14 +25,21 @@ public class User {
 //    @JoinColumn(name = "classId")
 //    private Class aClass;
 
-    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "teacher")
     private List<Class> classes;
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToMany(cascade = {
+            CascadeType.REFRESH,
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST
+    },fetch = FetchType.LAZY)
     @JoinTable(
             name = "EnroledStudents",
             joinColumns= @JoinColumn(name = "userId"),
-            inverseJoinColumns = @JoinColumn(name = "classId")
+            inverseJoinColumns = @JoinColumn(name = "classId"),
+            foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
+            inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
     )
     private Set<Class> enroledStudents;
 
