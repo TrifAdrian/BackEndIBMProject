@@ -3,11 +3,14 @@ package ibm.practica.checkin.services;
 import ibm.practica.checkin.db.model.Class;
 import ibm.practica.checkin.db.model.User;
 import ibm.practica.checkin.db.repository.ClassRepository;
+import ibm.practica.checkin.domain.model.ClassDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ClassPersistenceServiceImpl implements ClassPersistenceService{
 
     @Autowired
@@ -26,8 +29,8 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
     }
 
     @Override
-    public List<Class> getAllClasses() {
-        return classRepository.findAll();
+    public List<ClassDto> getAllClasses() {
+        return classRepository.findAllClassDto();
     }
 
     @Override

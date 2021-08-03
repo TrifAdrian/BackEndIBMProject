@@ -24,6 +24,19 @@ public final class ClassDto {
         this.dateList = dateList;
     }
 
+    public ClassDto(String name, Integer year, String section, UserFullName teacher) {
+        this.name = name;
+        this.year = year;
+        this.section = section;
+        this.teacher = teacher;
+    }
+
+    public ClassDto(String name, Integer year, String section) {
+        this.name = name;
+        this.year = year;
+        this.section = section;
+    }
+
     public List<ScheduleDto> getDateList() {
         return dateList;
     }
