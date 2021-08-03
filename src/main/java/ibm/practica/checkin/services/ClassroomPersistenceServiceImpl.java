@@ -38,13 +38,18 @@ public class ClassroomPersistenceServiceImpl implements ClassroomPersistenceServ
 
     @Override
     public void deleteClassroom(Long id) {
-
         classroomRepository.deleteById(id);
     }
 
     @Override
-    public Classroom updateClassroom(Classroom classroom) {
-        return classroomRepository.save(classroom);
+    public Integer updateClassroom(ClassroomDto classroomDto) {
+
+        Classroom classroom = new Classroom();
+        classroom.setId(classroom.getId());
+        classroom.setFeatures(getFeatures(classroomDto,classroom));
+        classroomRepository.save(classroom);
+
+        return classroomRepository.updateClassroom(classroomDto);
     }
 
     @Override

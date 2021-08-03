@@ -41,7 +41,7 @@ public interface ClassroomController {
             @ApiResponse(responseCode = "200", description = "Classroom updated successfully", content = {
                     @Content(mediaType = "application/json",schema = @Schema(implementation = ClassroomDto.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
-    ClassroomDto update(ClassroomDto classroomDto);
+    Integer update(ClassroomDto classroomDto);
 
     @Operation(summary = "Delete classroom")
     @ApiResponses(value = {

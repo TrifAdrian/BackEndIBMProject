@@ -46,7 +46,8 @@ public class ClassroomService implements ClassroomController {
 
     @Override
     @PutMapping
-    public ClassroomDto update(@RequestBody ClassroomDto classroomDto) {
-        return null;
+    public Integer update(@RequestBody ClassroomDto classroomDto) {
+        System.out.println(classroomDto.toString());
+        return classroomPersistenceService.updateClassroom(classroomDto);
     }
 }

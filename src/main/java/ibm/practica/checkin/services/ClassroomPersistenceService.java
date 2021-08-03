@@ -14,7 +14,7 @@ public interface ClassroomPersistenceService {
     Long persistClassroom(ClassroomDto classroomDto);
     List<ClassroomDto> getAllClassroom();
     void deleteClassroom(Long id);
-    Classroom updateClassroom(Classroom classroom);
+    Integer updateClassroom(ClassroomDto classroomDto);
     Optional<ClassroomDto> findClassroomDto(Long id);
 
 
