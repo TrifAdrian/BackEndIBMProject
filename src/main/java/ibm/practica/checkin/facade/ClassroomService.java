@@ -54,12 +54,6 @@ public class ClassroomService implements ClassroomController {
     @Override
     @PutMapping
     public Integer update(@RequestBody ClassroomDto classroomDto) {
-        for (FeatureDto f: classroomDto.getFeatures_list()) {
-            Feature feature = new Feature();
-//            feature.getId()=f.getId();
-//            feature.getName();
-//            featurePersistenceService.persistFeature();
-        }
 
         return classroomPersistenceService.updateClassroom(classroomDto);
     }

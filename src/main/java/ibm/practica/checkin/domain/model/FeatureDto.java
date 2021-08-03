@@ -4,8 +4,9 @@ package ibm.practica.checkin.domain.model;
 
 public final class FeatureDto {
 
-    private String name;
     private Long id;
+    private String name;
+
 
     public FeatureDto(String name, Long id) {
         this.name = name;
