@@ -25,7 +25,6 @@ public interface ClassroomRepository extends JpaRepository<Classroom, Long> {
     @Modifying
     @Query("UPDATE Classroom cr SET cr.capacity=:#{#classroomDto.capacity}, " +
             "cr.location=:#{#classroomDto.location}, cr.name=:#{#classroomDto.name} where cr.id =:#{#classroomDto.id}")
-    Integer updateClassroom(ClassroomDto classroomDto);
-
+    Integer updateClassroomDetails(ClassroomDto classroomDto);
 
 }

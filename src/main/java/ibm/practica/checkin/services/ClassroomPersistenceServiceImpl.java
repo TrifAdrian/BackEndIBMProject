@@ -24,6 +24,7 @@ public class ClassroomPersistenceServiceImpl implements ClassroomPersistenceServ
 
     @Override
     public List<ClassroomDto> getAllClassroom() {
+
         return getClassroomDtos();
     }
 
@@ -51,7 +52,7 @@ public class ClassroomPersistenceServiceImpl implements ClassroomPersistenceServ
         featureRepository.deleteFeatureByClassroomId(classroomDto.getId());
         classroomRepository.save(classroom);
 
-        return classroomRepository.updateClassroom(classroomDto);
+        return classroomRepository.updateClassroomDetails(classroomDto);
     }
 
     @Override

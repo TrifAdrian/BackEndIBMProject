@@ -1,6 +1,8 @@
 package ibm.practica.checkin.facade;
 
+import ibm.practica.checkin.db.model.Classroom;
 import ibm.practica.checkin.db.model.Feature;
+import ibm.practica.checkin.db.repository.ClassroomRepository;
 import ibm.practica.checkin.domain.model.ClassroomDto;
 import ibm.practica.checkin.domain.model.FeatureDto;
 import ibm.practica.checkin.services.ClassroomPersistenceService;
@@ -54,7 +56,7 @@ public class ClassroomService implements ClassroomController {
     @Override
     @PutMapping
     public Integer update(@RequestBody ClassroomDto classroomDto) {
-
         return classroomPersistenceService.updateClassroom(classroomDto);
     }
+
 }

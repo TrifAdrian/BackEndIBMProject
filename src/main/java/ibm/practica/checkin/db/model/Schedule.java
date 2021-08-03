@@ -1,5 +1,7 @@
 package ibm.practica.checkin.db.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -12,6 +14,7 @@ public class Schedule {
 
     private LocalDate localDate;
 
+    @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "classId")
     private Class aClass;

@@ -46,12 +46,13 @@ public class ClassService implements ClassController{
     @GetMapping("/{id}")
     @Override
     public Optional<ClassDto> findClass(@PathVariable("id") Long id) {
-        return Optional.empty();
+        return classPersistenceService.findClass(id);
     }
 
     @GetMapping
     @Override
     public List<ClassDto> getAllClasses() {
+
         return classPersistenceService.getAllClasses();
     }
 }

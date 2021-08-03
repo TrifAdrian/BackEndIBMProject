@@ -29,7 +29,14 @@ public interface FeatureRepository extends JpaRepository<Feature, Long> {
     @Modifying
     void deleteFeatureByClassroomId(Long id);
 
+    @Transactional
+    @Modifying
+    @Query("UPDATE Feature SET name = :#{#featureDto.name} where id = :#{#featureDto.id} ")
+    Integer updateFeatureNameById(FeatureDto featureDto);
 
+    @Transactional
+    @Modifying
+    void deleteFeaturesByClassroomId(Long id);
 
 
 }

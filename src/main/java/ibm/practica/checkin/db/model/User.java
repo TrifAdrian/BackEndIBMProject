@@ -1,5 +1,8 @@
 package ibm.practica.checkin.db.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
@@ -24,10 +27,11 @@ public class User {
 //    @ManyToOne()
 //    @JoinColumn(name = "classId")
 //    private Class aClass;
-
+    @JsonManagedReference
     @OneToMany(mappedBy = "teacher")
     private List<Class> classes;
 
+    @JsonBackReference
     @ManyToMany(cascade = {
             CascadeType.REFRESH,
             CascadeType.DETACH,
