@@ -27,4 +27,15 @@ public interface ClassroomRepository extends JpaRepository<Classroom, Long> {
             "cr.location=:#{#classroomDto.location}, cr.name=:#{#classroomDto.name} where cr.id =:#{#classroomDto.id}")
     Integer updateClassroomDetails(ClassroomDto classroomDto);
 
+    @Query("SELECT distinct c from Classroom c join c.classes clas  where clas.id= :id ")
+    List<Classroom> findClassroomsByClassId(@Param("id") Long id);
+
+    @Query("select new ibm.practica.checkin.domain.model.ClassroomDto(cr.id,cr.name,cr.location,cr.capacity) from Classroom cr join cr.classes cls where cls.id= :id ")
+    List<ClassroomDto> getClassroomsDetailsByClassId(@Param("id") Long id);
+
+
+
+
+
+
 }

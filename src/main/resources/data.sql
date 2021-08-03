@@ -23,6 +23,8 @@ insert into class values (4,'Calculus','CTI-EN',1,4);
 
 insert into repartition values (1,1);
 insert into repartition values (1,3);
+insert into repartition values (2,3);
+insert into repartition values (3,2);
 insert into repartition values (4,4);
 
 
@@ -31,6 +33,7 @@ insert into schedule values (2,'2021-04-22',2);
 insert into schedule values (3,'2021-04-22',4);
 insert into schedule values (4,'2021-04-24',1);
 insert into schedule values (5,'2021-04-22',4);
+insert into schedule values (6,'2021-04-21',1);
 
 
 insert into enroled_students values (1,1);

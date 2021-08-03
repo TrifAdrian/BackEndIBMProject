@@ -4,18 +4,19 @@ import java.util.List;
 
 public final class ClassDto {
 
+    private Long id;
     private String name;
     private Integer year;
     private String section;
 
-    private ClassroomDto classroom;
+    private List<ClassroomDto> classroom;
     private String teacherName;
     private List<ScheduleDto> dateList;
 
     public ClassDto() {
     }
 
-    public ClassDto(String name, Integer year, String section, ClassroomDto classroom, String teacherName, List<ScheduleDto> dateList) {
+    public ClassDto(String name, Integer year, String section, List<ClassroomDto> classroom, String teacherName, List<ScheduleDto> dateList) {
         this.name = name;
         this.year = year;
         this.section = section;
@@ -24,7 +25,8 @@ public final class ClassDto {
         this.dateList = dateList;
     }
 
-    public ClassDto(String name, Integer year, String section, String teacherName) {
+    public ClassDto(Long id,String name, Integer year, String section, String teacherName) {
+        this.id=id;
         this.name = name;
         this.year = year;
         this.section = section;
@@ -35,6 +37,14 @@ public final class ClassDto {
         this.name = name;
         this.year = year;
         this.section = section;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTeacherName() {
@@ -77,13 +87,11 @@ public final class ClassDto {
         this.section = section;
     }
 
-    public ClassroomDto getClassroom() {
+    public List<ClassroomDto> getClassroom() {
         return classroom;
     }
 
-    public void setClassroom(ClassroomDto classroom) {
+    public void setClassroom(List<ClassroomDto> classroom) {
         this.classroom = classroom;
     }
-
-
 }
