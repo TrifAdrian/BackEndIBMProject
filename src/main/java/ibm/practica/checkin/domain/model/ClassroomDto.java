@@ -7,6 +7,7 @@ import java.util.List;
 
 public final class ClassroomDto {
 
+    private Long id;
     private String name;
     private String location;
     private Integer capacity;
@@ -15,7 +16,16 @@ public final class ClassroomDto {
     public ClassroomDto() {
     }
 
-    public ClassroomDto(String name, String location, Integer capacity, List<FeatureDto> features_list) {
+    public ClassroomDto(Long id, String name, String location, Integer capacity) {
+        this.id = id;
+
+        this.name = name;
+        this.location = location;
+        this.capacity = capacity;
+    }
+
+    public ClassroomDto(Long id, String name, String location, Integer capacity, List<FeatureDto> features_list) {
+        this.id = id;
         this.name = name;
         this.location = location;
         this.capacity = capacity;
@@ -52,5 +62,13 @@ public final class ClassroomDto {
 
     public void setFeatures_list(List<FeatureDto> features_list) {
         this.features_list = features_list;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

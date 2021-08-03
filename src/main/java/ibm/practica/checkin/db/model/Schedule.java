@@ -12,7 +12,8 @@ public class Schedule {
 
     private LocalDate localDate;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "classId")
     private Class aClass;
 
     public Schedule() {

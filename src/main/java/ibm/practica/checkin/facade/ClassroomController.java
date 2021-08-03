@@ -16,14 +16,14 @@ public interface ClassroomController {
     @Operation(summary = "Add a classroom to the database")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "The classroom was added", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = Classroom.class)) }),
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = ClassroomDto.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
     Long createClassroom(ClassroomDto classroomDto);
 
     @Operation(summary = "Find a classroom by a certain id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "The classroom was found", content = {
-                    @Content(mediaType = "application/json",schema = @Schema(implementation = Classroom.class)) }),
+                    @Content(mediaType = "application/json",schema = @Schema(implementation = ClassroomDto.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content),
             @ApiResponse(responseCode = "404", description = "No classroom found", content = @Content) })
     Optional<ClassroomDto> findClassroom(Long id);
@@ -31,7 +31,7 @@ public interface ClassroomController {
     @Operation(summary = "Get all classes")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "All the classes were returned", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = Classroom.class)) }),
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = ClassroomDto.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content),
             @ApiResponse(responseCode = "404", description = "No classroom found", content = @Content) })
     List<ClassroomDto> getAllClassroom();
@@ -39,7 +39,7 @@ public interface ClassroomController {
     @Operation(summary = "Edits classroom details")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Classroom updated successfully", content = {
-                    @Content(mediaType = "application/json",schema = @Schema(implementation = Classroom.class)) }),
+                    @Content(mediaType = "application/json",schema = @Schema(implementation = ClassroomDto.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
     ClassroomDto update(ClassroomDto classroomDto);
 

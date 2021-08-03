@@ -13,22 +13,44 @@ public class Classroom {
     private Long id;
     private String location;
     private Integer capacity;
+    private String name;
 
-    @OneToMany(mappedBy = "classroom")
+    @OneToMany(mappedBy = "classroom",cascade = CascadeType.ALL)
     private List<Feature> features;
 
-    @ManyToMany(mappedBy = "classrooms")
+    @ManyToMany(cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH
+    },fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "Repartition",
+            joinColumns =@JoinColumn(name = "classroomId"),
+            inverseJoinColumns = @JoinColumn(name = "classId"),
+            foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
+            inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
+    )
     private Set<Class> classes;
 
-    public Classroom(Long id, String location, Integer capacity, List<Feature> features, Set<Class> classes) {
+    public Classroom(Long id, String location, Integer capacity, String name, List<Feature> features, Set<Class> classes) {
         this.id = id;
         this.location = location;
         this.capacity = capacity;
+        this.name = name;
         this.features = features;
         this.classes = classes;
     }
 
     public Classroom() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Set<Class> getClasses() {

@@ -1,6 +1,6 @@
 package ibm.practica.checkin.domain.model;
 
-public class ClassEnrollStudent {
+public final class ClassEnrollStudent {
 
     private String classname;
     private StudentDetails studentDetails;
