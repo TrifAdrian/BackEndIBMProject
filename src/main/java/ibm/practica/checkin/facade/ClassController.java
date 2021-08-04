@@ -1,6 +1,7 @@
 package ibm.practica.checkin.facade;
 
 import ibm.practica.checkin.db.model.Class;
+import ibm.practica.checkin.domain.model.ClassDetail;
 import ibm.practica.checkin.domain.model.ClassDto;
 import ibm.practica.checkin.domain.model.ClassEnrollStudent;
 import ibm.practica.checkin.domain.model.StudentDetails;
@@ -20,7 +21,7 @@ public interface ClassController {
             @ApiResponse(responseCode = "200", description = "The class was added", content = {
                     @Content(mediaType = "application/json", schema = @Schema(implementation = ClassDto.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
-    Long createClass(ClassDto classDto);
+    Long createClass(ClassDetail classDetail);
 
     @Operation(summary = "Find a class by a certain id")
     @ApiResponses(value = {
@@ -51,14 +52,14 @@ public interface ClassController {
                     @Content(mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", description = "Id not found", content = @Content),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
-    void delete (Long id);
+    void deleteClass (Long id);
 
     @Operation(summary = "Adds a new student to the student list")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Updated successfully", content = {
                     @Content(mediaType = "application/json",schema = @Schema(implementation = ClassDto.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
-    ClassEnrollStudent enrolToClass (ClassEnrollStudent classEnrollStudent);
+    Integer enrolToClass (ClassEnrollStudent classEnrollStudent);
 
 
 }

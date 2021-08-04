@@ -1,5 +1,6 @@
 package ibm.practica.checkin.facade;
 
+import ibm.practica.checkin.domain.model.ClassDetail;
 import ibm.practica.checkin.domain.model.ClassDto;
 import ibm.practica.checkin.domain.model.ClassEnrollStudent;
 import ibm.practica.checkin.domain.model.StudentDetails;
@@ -26,21 +27,22 @@ public class ClassService implements ClassController{
 
     @Override
     @PatchMapping("/update")
-    public ClassEnrollStudent enrolToClass(ClassEnrollStudent classEnrollStudent) {
-        return null;
+    public Integer enrolToClass(@RequestBody ClassEnrollStudent classEnrollStudent) {
+
+        return classPersistenceService.updateStudentList(classEnrollStudent.getClassId(),classEnrollStudent.getStudentId());
     }
 
     @Override
     @DeleteMapping("/{id}")
-    public void delete(Long id) {
-
+    public void deleteClass(Long id) {
+        classPersistenceService.deleteClass(id);
     }
 
     @PostMapping()
     @Override
     @ResponseStatus(HttpStatus.CREATED)
-    public Long createClass(@RequestBody ClassDto classDto) {
-        return null;
+    public Long createClass(@RequestBody ClassDetail classDetail) {
+        return classPersistenceService.persistClass(classDetail);
     }
 
     @GetMapping("/{id}")

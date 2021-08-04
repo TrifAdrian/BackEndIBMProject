@@ -22,7 +22,7 @@ public interface ClassRepository extends JpaRepository <Class, Long>{
             "from Class c join c.teacher t where c.id =:id")
     ClassDto getClassDetails(@Param("id") Long id);
 
-
-
+    @Query("select max(c.id) from Class c")
+    Long lastId();
 
 }

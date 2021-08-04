@@ -91,6 +91,8 @@ public class Class {
 //        this.teacher = teacher;
 //    }
 
+
+
     public Set<Classroom> getClassrooms() {
         return classrooms;
     }
@@ -137,6 +139,14 @@ public class Class {
         this.section = section;
     }
 
+    public User getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(User teacher) {
+        this.teacher = teacher;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -175,4 +185,5 @@ public class Class {
                 ", classDates=" + classDates +
                 '}';
     }
+
 }

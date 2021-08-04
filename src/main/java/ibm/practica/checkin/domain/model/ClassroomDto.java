@@ -1,7 +1,6 @@
 package ibm.practica.checkin.domain.model;
 
 
-
 import java.util.List;
 
 

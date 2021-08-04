@@ -2,30 +2,27 @@ package ibm.practica.checkin.domain.model;
 
 public final class ClassEnrollStudent {
 
-    private String classname;
-    private StudentDetails studentDetails;
+    private Long classId;
+    private Long studentId;
 
-    public ClassEnrollStudent(String classname, StudentDetails studentDetails) {
-        this.classname = classname;
-        this.studentDetails = studentDetails;
-    }
 
     public ClassEnrollStudent() {
     }
 
-    public String getClassname() {
-        return classname;
+
+    public Long getStudentId() {
+        return studentId;
     }
 
-    public void setClassname(String classname) {
-        this.classname = classname;
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
     }
 
-    public StudentDetails getStudentDetails() {
-        return studentDetails;
+    public Long getClassId() {
+        return classId;
     }
 
-    public void setStudentDetails(StudentDetails studentDetails) {
-        this.studentDetails = studentDetails;
+    public void setClassId(Long id) {
+        this.classId = id;
     }
 }

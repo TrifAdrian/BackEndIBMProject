@@ -33,6 +33,10 @@ public interface ClassroomRepository extends JpaRepository<Classroom, Long> {
     @Query("select new ibm.practica.checkin.domain.model.ClassroomDto(cr.id,cr.name,cr.location,cr.capacity) from Classroom cr join cr.classes cls where cls.id= :id ")
     List<ClassroomDto> getClassroomsDetailsByClassId(@Param("id") Long id);
 
+    @Query("select new ibm.practica.checkin.domain.model.ClassroomDto(cr.id, cr.name, cr.location, cr.capacity)" +
+            "from Classroom cr join cr.classes repatition where repatition.id = :id")
+    ClassroomDto getClassroomByClassId(@Param("id") Long id);
+
 
 
 

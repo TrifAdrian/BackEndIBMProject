@@ -23,7 +23,6 @@ insert into class values (4,'Calculus','CTI-EN',1,4);
 
 insert into repartition values (1,1);
 insert into repartition values (1,3);
-insert into repartition values (2,3);
 insert into repartition values (3,2);
 insert into repartition values (4,4);
 
