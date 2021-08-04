@@ -86,7 +86,7 @@ public class ClassroomPersistenceServiceImpl implements ClassroomPersistenceServ
 
         for (FeatureDto f: features_list) {
             Feature feature = new Feature();
-            feature.setId(f.getId());
+
             feature.setClassroom(classroom);
             feature.setName(f.getName());
             featureRepository.save(feature);
