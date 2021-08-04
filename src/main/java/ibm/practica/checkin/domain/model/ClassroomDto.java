@@ -71,4 +71,15 @@ public final class ClassroomDto {
     public void setId(Long id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "ClassroomDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", location='" + location + '\'' +
+                ", capacity=" + capacity +
+                ", features_list=" + features_list +
+                '}';
+    }
 }

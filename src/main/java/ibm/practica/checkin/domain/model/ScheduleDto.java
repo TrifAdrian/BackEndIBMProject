@@ -12,6 +12,10 @@ public final class ScheduleDto {
     public ScheduleDto() {
     }
 
+    public ScheduleDto(LocalDate date) {
+        this.date = date;
+    }
+
     public LocalDate getDate() {
         return date;
     }

@@ -1,5 +1,7 @@
 package ibm.practica.checkin.db.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class Feature {
 
     private String name;
 
+    @JsonBackReference
     @ManyToOne
     private Classroom classroom;
 

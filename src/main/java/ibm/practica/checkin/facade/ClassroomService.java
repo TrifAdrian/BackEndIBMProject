@@ -1,7 +1,13 @@
 package ibm.practica.checkin.facade;
 
+import ibm.practica.checkin.db.model.Classroom;
+import ibm.practica.checkin.db.model.Feature;
+import ibm.practica.checkin.db.repository.ClassroomRepository;
 import ibm.practica.checkin.domain.model.ClassroomDto;
+import ibm.practica.checkin.domain.model.FeatureDto;
 import ibm.practica.checkin.services.ClassroomPersistenceService;
+import ibm.practica.checkin.services.FeaturePersistenceService;
+import ibm.practica.checkin.services.FeaturePersistenceServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +21,9 @@ public class ClassroomService implements ClassroomController {
 
     @Autowired
     ClassroomPersistenceService classroomPersistenceService;
+
+    @Autowired
+    FeaturePersistenceService featurePersistenceService;
 
     @DeleteMapping("/{id}")
     @Override
@@ -46,7 +55,8 @@ public class ClassroomService implements ClassroomController {
 
     @Override
     @PutMapping
-    public ClassroomDto update(@RequestBody ClassroomDto classroomDto) {
-        return null;
+    public Integer update(@RequestBody ClassroomDto classroomDto) {
+        return classroomPersistenceService.updateClassroom(classroomDto);
     }
+
 }

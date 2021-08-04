@@ -1,5 +1,8 @@
 package ibm.practica.checkin.db.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
@@ -15,9 +18,11 @@ public class Classroom {
     private Integer capacity;
     private String name;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "classroom",cascade = CascadeType.ALL)
     private List<Feature> features;
 
+    @JsonBackReference
     @ManyToMany(cascade = {
             CascadeType.DETACH,
             CascadeType.MERGE,

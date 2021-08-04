@@ -3,6 +3,8 @@ package ibm.practica.checkin.facade;
 import ibm.practica.checkin.domain.model.ClassDto;
 import ibm.practica.checkin.domain.model.ClassEnrollStudent;
 import ibm.practica.checkin.domain.model.StudentDetails;
+import ibm.practica.checkin.services.ClassPersistenceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +14,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/class")
 public class ClassService implements ClassController{
+
+    @Autowired
+    ClassPersistenceService classPersistenceService;
 
     @PutMapping
     @Override
@@ -41,12 +46,13 @@ public class ClassService implements ClassController{
     @GetMapping("/{id}")
     @Override
     public Optional<ClassDto> findClass(@PathVariable("id") Long id) {
-        return Optional.empty();
+        return classPersistenceService.findClass(id);
     }
 
     @GetMapping
     @Override
     public List<ClassDto> getAllClasses() {
-        return null;
+
+        return classPersistenceService.getAllClasses();
     }
 }
