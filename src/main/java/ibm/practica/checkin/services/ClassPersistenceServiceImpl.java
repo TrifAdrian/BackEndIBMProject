@@ -47,11 +47,11 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
         {
             ClassDto classDto = classRepository.getClassDetails(id);
 
-            List<ClassroomDto> classroomDtos = getClassroomDtos(id);
+            ClassroomDto classroomDto = classroomRepository.getClassroomByClassId(id);
+            classroomDto.setFeatures_list(featureRepository.findFeaturesByClassroomId(classroomDto.getId()));
+            classDto.setClassroom(classroomDto);
 
             classDto.setDateList(scheduleRepository.getSchedulesByClassId(id));
-            classDto.setClassroom(classroomDtos);
-
             return Optional.of(classDto);
         }
 

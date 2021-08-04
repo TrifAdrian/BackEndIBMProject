@@ -23,6 +23,4 @@ public interface ClassRepository extends JpaRepository <Class, Long>{
     ClassDto getClassDetails(@Param("id") Long id);
 
 
-
-
 }
