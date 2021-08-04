@@ -60,34 +60,17 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
 
     }
 
-    private List<ClassroomDto> getClassroomDtos(Long id) {
-        List<Classroom> classroomList =classroomRepository.findClassroomsByClassId(id);
-        List<ClassroomDto> classroomDtos = new ArrayList<>();
-        for (Classroom classroom : classroomList)
-        {
-            ClassroomDto classroomDto = new ClassroomDto(classroom.getId(),
-                    classroom.getName(),
-                    classroom.getLocation(),
-                    classroom.getCapacity(),
-                    featureRepository.findFeaturesByClassroomId(classroom.getId()));
-            classroomDtos.add(classroomDto);
-        }
-        return classroomDtos;
-    }
-
     @Override
     public List<ClassDto> getAllClasses() {
        List<ClassDto> classDtos = classRepository.getAllClassDetailsDto();
 
         for (ClassDto dto: classDtos)
         {
-            List<ClassroomDto> classroomDtos = classroomRepository.getClassroomsDetailsByClassId(dto.getId());
-//            for (ClassroomDto classroomDto : classroomDtos)
-//            {
-//                classroomDto.setFeatures_list(featureRepository.findFeaturesByClassroomId(classroomDto.getId()));
-//            }
+            ClassroomDto classroomDto = classroomRepository.getClassroomByClassId(dto.getId());
 
-            dto.setClassroom(classroomDtos);
+            classroomDto.setFeatures_list(featureRepository.findFeaturesByClassroomId(classroomDto.getId()));
+            dto.setClassroom(classroomDto);
+            dto.setDateList(scheduleRepository.getSchedulesByClassId(dto.getId()));
         }
         return classDtos;
     }
@@ -104,8 +87,8 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
 
     @Override
     public Long persistClass(Class aClass) {
-        Class savedClass =classRepository.save(aClass);
-        return savedClass.getId();
+        Class savedClass =classRepository.save(aClass);//sunt putin afk ma duc sa vad daca e gata masa also vezi ca nu ai dat commit la tot
+        return savedClass.getId();                     //scrie in terminal git add .
     }
 
 

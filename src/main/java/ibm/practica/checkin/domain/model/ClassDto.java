@@ -9,7 +9,7 @@ public final class ClassDto {
     private Integer year;
     private String section;
 
-    private List<ClassroomDto> classroom;
+    private ClassroomDto classroom;
     private String teacherName;
     private List<ScheduleDto> dateList;
 
