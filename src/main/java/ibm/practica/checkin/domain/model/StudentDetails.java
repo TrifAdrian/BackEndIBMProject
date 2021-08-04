@@ -4,6 +4,7 @@ package ibm.practica.checkin.domain.model;
 
 public final class StudentDetails {
 
+    private Long id;
     private String firstName;
     private String lastName;
     private Integer year;
@@ -20,6 +21,8 @@ public final class StudentDetails {
         this.section = section;
 
     }
+
+
 
     public String getLastName() {
         return lastName;
@@ -51,5 +54,13 @@ public final class StudentDetails {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

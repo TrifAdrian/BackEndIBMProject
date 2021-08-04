@@ -2,20 +2,14 @@ package ibm.practica.checkin.services;
 
 import ibm.practica.checkin.db.model.Class;
 import ibm.practica.checkin.db.model.Classroom;
+import ibm.practica.checkin.db.model.Schedule;
 import ibm.practica.checkin.db.model.User;
-import ibm.practica.checkin.db.repository.ClassRepository;
-import ibm.practica.checkin.db.repository.ClassroomRepository;
-import ibm.practica.checkin.db.repository.FeatureRepository;
-import ibm.practica.checkin.db.repository.ScheduleRepository;
-import ibm.practica.checkin.domain.model.ClassDto;
-import ibm.practica.checkin.domain.model.ClassroomDto;
+import ibm.practica.checkin.db.repository.*;
+import ibm.practica.checkin.domain.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class ClassPersistenceServiceImpl implements ClassPersistenceService{
@@ -32,11 +26,23 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
     @Autowired
     private ScheduleRepository scheduleRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
-    public Class updateStudentList(Long id, List<User> students) {
-       // Optional<Class> updateClass = classRepository.findById(id);
-        //return classRepository.save(updateClass);
-        return null;
+    public Integer updateStudentList(Long id, Long studentId) {
+        Optional<Class> updateClass = classRepository.findById(id);
+        if(updateClass.isPresent())
+        {
+            Class var = updateClass.get();
+            Set<User> studentlist = var.getStudents();
+            User user = userRepository.getById(studentId);
+            studentlist.add(user);
+            classRepository.save(var);
+
+            return new Integer(0);
+        }
+        return new Integer(1);
     }
 
     @Override
@@ -86,10 +92,52 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
     }
 
     @Override
-    public Long persistClass(Class aClass) {
-        Class savedClass =classRepository.save(aClass);//sunt putin afk ma duc sa vad daca e gata masa also vezi ca nu ai dat commit la tot
-        return savedClass.getId();                     //scrie in terminal git add .
-    }
+    public Long persistClass(ClassDetail classDetail) {
 
+        Class createClass = new Class();
+
+        createClass = classRepository.save(createClass);
+
+        createClass.setName(classDetail.getName());
+        createClass.setSection(classDetail.getSection());
+        createClass.setYear(classDetail.getYear());
+        createClass.setStudents(Collections.emptySet());
+
+        Optional<User> teacherOpt = userRepository.findById(classDetail.getTeacherId());
+        User teacher = new User();
+        if (teacherOpt.isPresent()) {
+
+            teacher=teacherOpt.get();
+        }
+
+        createClass.setTeacher(teacher);
+
+        Optional<Classroom> classroomOpt = classroomRepository.findById(classDetail.getClassroomId());
+        Classroom classroom = new Classroom();
+        if(classroomOpt.isPresent()) {
+            Set<Classroom> classrooms = new HashSet<>();
+            classroom = classroomOpt.get();
+            classrooms.add(classroom);
+
+            createClass.setClassrooms(classrooms);
+        }
+
+        List<Schedule> schedules = new ArrayList<>();
+        List<ScheduleDto> scheduleDtos = classDetail.getDates();
+
+        for(ScheduleDto s : scheduleDtos)
+        {
+            Schedule schedule = new Schedule();
+            schedule.setLocalDate(s.getDate());
+            schedule.setaClass(createClass);
+            scheduleRepository.save(schedule);
+            schedules.add(schedule);
+        }
+        createClass.setClassDates(schedules);
+
+        Class result = classRepository.save(createClass);
+
+        return result.getId();
+    }
 
 }

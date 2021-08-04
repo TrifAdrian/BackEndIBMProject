@@ -124,6 +124,7 @@ public class User {
         this.section = section;
     }
 
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
