@@ -13,12 +13,6 @@ import java.util.List;
 
 public interface FeatureController {
 
-    @Operation(summary = "Add a classroom to the database")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "The feature was created", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = FeatureDto.class)) }),
-            @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
-    Long createFeature(FeatureDto featureDto);
 
     @Operation(summary = "Deletes a feature")
     @ApiResponses(value = {

@@ -1,4 +1,4 @@
-package ibm.practica.checkin.services;
+package ibm.practica.checkin.services.User;
 
 import ibm.practica.checkin.db.model.User;
 import org.springframework.stereotype.Service;

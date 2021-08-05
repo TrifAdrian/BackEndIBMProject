@@ -1,4 +1,4 @@
-package ibm.practica.checkin.services;
+package ibm.practica.checkin.services.Feature;
 
 import ibm.practica.checkin.db.model.Feature;
 import ibm.practica.checkin.db.repository.FeatureRepository;
@@ -14,11 +14,7 @@ public class FeaturePersistenceServiceImpl implements FeaturePersistenceService{
     @Autowired
     private FeatureRepository featureRepository;
 
-    @Override
-    public Long persistFeature(Feature feature) {
-        Feature savedFeature = featureRepository.save(feature);
-        return savedFeature.getId();
-    }
+
 
     @Override
     public void deleteFeature(Long id,Long classroomId) {
