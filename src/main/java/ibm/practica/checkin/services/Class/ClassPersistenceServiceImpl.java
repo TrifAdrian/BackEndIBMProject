@@ -1,9 +1,7 @@
-package ibm.practica.checkin.services;
+package ibm.practica.checkin.services.Class;
 
+import ibm.practica.checkin.db.model.*;
 import ibm.practica.checkin.db.model.Class;
-import ibm.practica.checkin.db.model.Classroom;
-import ibm.practica.checkin.db.model.Schedule;
-import ibm.practica.checkin.db.model.User;
 import ibm.practica.checkin.db.repository.*;
 import ibm.practica.checkin.domain.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,8 +80,54 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
     }
 
     @Override
-    public Class updateClass(Class aClass) {
-        return classRepository.save(aClass);
+    public Class updateClass(ClassDetail classDetail) {
+
+        Optional<Class> findClassOpt = classRepository.findById(classDetail.getId());
+        if(findClassOpt.isPresent())
+        {
+            Class findClass=findClassOpt.get();
+
+            findClass.setName(classDetail.getName());
+            findClass.setYear(classDetail.getYear());
+            findClass.setSection(classDetail.getSection());
+            Optional<User> findTeacher = userRepository.findById(classDetail.getTeacherId());
+            if(findTeacher.isPresent()) {
+                User teacher = findTeacher.get();
+                findClass.setTeacher(teacher);
+            }
+
+            Set<Classroom> classrooms = new HashSet<>();
+            Optional<Classroom> classroomOptional = classroomRepository.findById(classDetail.getClassroomId());
+            if(classroomOptional.isPresent())
+            {
+                Classroom classroom = classroomOptional.get();
+                classrooms.add(classroom);
+            }
+            findClass.setClassrooms(classrooms);
+
+            scheduleRepository.deleteByAClass(findClass.getId());
+
+            List<Schedule> schedules = new ArrayList<>();
+            List<ScheduleDto> scheduleDtos= classDetail.getDates();
+
+
+            for (ScheduleDto scheduleDto : scheduleDtos)
+            {
+                Schedule schedule = new Schedule();
+                schedule.setaClass(findClass);
+                schedule.setLocalDate(scheduleDto.getDate());
+
+                schedules.add(schedule);
+
+            }
+
+            findClass.setClassDates(schedules);
+
+            return classRepository.save(findClass);
+
+        }
+
+       return new Class();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package ibm.practica.checkin.services;
+package ibm.practica.checkin.services.Classroom;
 
 import ibm.practica.checkin.db.model.Classroom;
 import ibm.practica.checkin.db.model.Feature;

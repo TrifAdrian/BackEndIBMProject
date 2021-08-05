@@ -1,4 +1,4 @@
-package ibm.practica.checkin.services;
+package ibm.practica.checkin.services.Feature;
 
 import ibm.practica.checkin.db.model.Feature;
 import ibm.practica.checkin.domain.model.FeatureDto;
@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface FeaturePersistenceService {
 
-    Long persistFeature(Feature feature);
     void deleteFeature(Long id,Long classroomId);
     List<FeatureDto> getAllFeatures(Long id);
 

@@ -1,4 +1,4 @@
-package ibm.practica.checkin.services;
+package ibm.practica.checkin.services.Class;
 
 import ibm.practica.checkin.db.model.Class;
 import ibm.practica.checkin.db.model.User;
@@ -14,7 +14,7 @@ public interface ClassPersistenceService {
      Long persistClass(ClassDetail classDetail);
      Optional<ClassDto> findClass(Long id);
      List<ClassDto> getAllClasses();
-     Class updateClass(Class aClass);
+     Class updateClass(ClassDetail ClassDetail);
      void deleteClass(Long id);
      Integer updateStudentList(Long id, Long studentId);
 

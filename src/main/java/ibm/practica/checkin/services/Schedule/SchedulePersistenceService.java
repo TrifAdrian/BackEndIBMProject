@@ -1,4 +1,4 @@
-package ibm.practica.checkin.services;
+package ibm.practica.checkin.services.Schedule;
 
 import ibm.practica.checkin.db.model.Schedule;
 import org.springframework.stereotype.Service;

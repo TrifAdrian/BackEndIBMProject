@@ -1,10 +1,10 @@
 package ibm.practica.checkin.facade;
 
+import ibm.practica.checkin.db.model.Class;
 import ibm.practica.checkin.domain.model.ClassDetail;
 import ibm.practica.checkin.domain.model.ClassDto;
 import ibm.practica.checkin.domain.model.ClassEnrollStudent;
-import ibm.practica.checkin.domain.model.StudentDetails;
-import ibm.practica.checkin.services.ClassPersistenceService;
+import ibm.practica.checkin.services.Class.ClassPersistenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +21,8 @@ public class ClassService implements ClassController{
 
     @PutMapping
     @Override
-    public ClassDto updateClass(@RequestBody ClassDto classDto) {
-        return null;
+    public Class updateClass(@RequestBody ClassDetail classDetail) {
+        return classPersistenceService.updateClass(classDetail);
     }
 
     @Override
