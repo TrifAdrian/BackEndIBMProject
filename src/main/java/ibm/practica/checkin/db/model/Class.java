@@ -83,16 +83,6 @@ public class Class {
         this.classDates = classDates;
     }
 
-//    public List<User> getTeacher() {
-//        return teacher;
-//    }
-//
-//    public void setTeacher(List<User> teacher) {
-//        this.teacher = teacher;
-//    }
-
-
-
     public Set<Classroom> getClassrooms() {
         return classrooms;
     }
