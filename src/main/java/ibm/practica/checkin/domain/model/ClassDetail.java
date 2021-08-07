@@ -4,7 +4,7 @@ import java.util.List;
 
 public final class ClassDetail {
 
-    private Long id;
+
     private String name;
     private Integer year;
     private String section;
@@ -15,22 +15,14 @@ public final class ClassDetail {
     public ClassDetail() {
     }
 
-    public ClassDetail(Long id, String name, Integer year, String section, Long teacherId, Long classroomId, List<ScheduleDto> dates) {
-        this.id = id;
+    public ClassDetail( String name, Integer year, String section, Long teacherId, Long classroomId, List<ScheduleDto> dates) {
+
         this.name = name;
         this.year = year;
         this.section = section;
         TeacherId = teacherId;
         ClassroomId = classroomId;
         this.dates = dates;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {

@@ -44,7 +44,7 @@ public interface ClassController {
             @ApiResponse(responseCode = "200", description = "Updated successfully", content = {
                     @Content(mediaType = "application/json",schema = @Schema(implementation = ClassDto.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
-    Class updateClass(ClassDetail classDetail);
+    Class updateClass(Long id,ClassDetail classDetail);
 
     @Operation(summary = "Delete class")
     @ApiResponses(value = {

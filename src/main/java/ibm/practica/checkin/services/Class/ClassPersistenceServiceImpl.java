@@ -80,9 +80,9 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
     }
 
     @Override
-    public Class updateClass(ClassDetail classDetail) {
+    public Class updateClass(Long id,ClassDetail classDetail) {
 
-        Optional<Class> findClassOpt = classRepository.findById(classDetail.getId());
+        Optional<Class> findClassOpt = classRepository.findById(id);
         if(findClassOpt.isPresent())
         {
             Class findClass=findClassOpt.get();
