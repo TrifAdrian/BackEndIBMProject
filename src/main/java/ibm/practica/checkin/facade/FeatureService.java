@@ -19,7 +19,7 @@ public class FeatureService implements FeatureController{
 
 
     @Override
-    @DeleteMapping("/{id}&{classroomId}")
+    @DeleteMapping("/{id}/{classroomId}")
     public void deleteFeature(@PathVariable("id") Long id,@PathVariable("classroomId") Long classroomId) {
         featurePersistenceService.deleteFeature(id,classroomId);
     }

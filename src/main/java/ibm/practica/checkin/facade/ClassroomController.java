@@ -28,7 +28,7 @@ public interface ClassroomController {
             @ApiResponse(responseCode = "404", description = "No classroom found", content = @Content) })
     Optional<ClassroomDto> findClassroom(Long id);
 
-    @Operation(summary = "Get all classes")
+    @Operation(summary = "Get all classrooms")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "All the classes were returned", content = {
                     @Content(mediaType = "application/json", schema = @Schema(implementation = ClassroomDto.class)) }),
