@@ -35,7 +35,7 @@ public class ClassService implements ClassController{
 
     @Override
     @DeleteMapping("/{id}")
-    public void deleteClass(Long id) {
+    public void deleteClass(@PathVariable("id") Long id) {
         classPersistenceService.deleteClass(id);
     }
 
