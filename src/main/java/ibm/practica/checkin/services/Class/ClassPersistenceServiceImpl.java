@@ -115,7 +115,8 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
             {
                 Schedule schedule = new Schedule();
                 schedule.setaClass(findClass);
-                schedule.setLocalDate(scheduleDto.getDate());
+                schedule.setStartTime(scheduleDto.getStartTime());
+                schedule.setEndTime(scheduleDto.getEndTime());
 
                 schedules.add(schedule);
 
@@ -172,7 +173,8 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
         for(ScheduleDto s : scheduleDtos)
         {
             Schedule schedule = new Schedule();
-            schedule.setLocalDate(s.getDate());
+            schedule.setStartTime(s.getStartTime());
+            schedule.setEndTime(s.getEndTime());
             schedule.setaClass(createClass);
             scheduleRepository.save(schedule);
             schedules.add(schedule);

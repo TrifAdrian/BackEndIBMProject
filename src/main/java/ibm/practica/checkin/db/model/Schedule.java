@@ -3,7 +3,6 @@ package ibm.practica.checkin.db.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 public class Schedule {
@@ -12,7 +11,8 @@ public class Schedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate localDate;
+    private String startTime;
+    private String endTime;
 
     @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
@@ -23,10 +23,18 @@ public class Schedule {
 
     }
 
-    public Schedule(Long id, LocalDate localDate, Class aClass) {
+    public Schedule(Long id, String startTime, Class aClass) {
         this.id = id;
-        this.localDate = localDate;
+        this.startTime = startTime;
         this.aClass = aClass;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public Long getId() {
@@ -45,12 +53,12 @@ public class Schedule {
         this.aClass = aClass;
     }
 
-    public LocalDate getLocalDate() {
-        return localDate;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setLocalDate(LocalDate localDate) {
-        this.localDate = localDate;
+    public void setStartTime(String date) {
+        this.startTime = date;
     }
 
     @Override
@@ -82,7 +90,8 @@ public class Schedule {
     public String toString() {
         return "Schedule{" +
                 "id=" + id +
-                ", localDate=" + localDate +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
                 ", aClass=" + aClass +
                 '}';
     }
