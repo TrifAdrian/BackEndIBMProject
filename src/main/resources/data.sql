@@ -27,12 +27,12 @@ insert into repartition values (3,2);
 insert into repartition values (4,4);
 
 
-insert into schedule values (1,'2021-04-21',1);
-insert into schedule values (2,'2021-04-22',2);
-insert into schedule values (3,'2021-04-22',4);
-insert into schedule values (4,'2021-04-24',1);
-insert into schedule values (5,'2021-04-22',4);
-insert into schedule values (6,'2021-04-21',1);
+insert into schedule values (1,'2021-04-21','2021-04-21',1);
+insert into schedule values (2,'2021-04-22','2021-04-22',2);
+insert into schedule values (3,'2021-04-22','2021-04-22',4);
+insert into schedule values (4,'2021-04-24','2021-04-24',1);
+insert into schedule values (5,'2021-04-22','2021-04-22',4);
+insert into schedule values (6,'2021-04-21','2021-04-21',1);
 
 
 insert into enroled_students values (1,1);

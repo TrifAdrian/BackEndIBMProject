@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/feature")
 public class FeatureService implements FeatureController{
 
@@ -19,7 +20,7 @@ public class FeatureService implements FeatureController{
 
 
     @Override
-    @DeleteMapping("/{id}&{classroomId}")
+    @DeleteMapping("/{id}/{classroomId}")
     public void deleteFeature(@PathVariable("id") Long id,@PathVariable("classroomId") Long classroomId) {
         featurePersistenceService.deleteFeature(id,classroomId);
     }

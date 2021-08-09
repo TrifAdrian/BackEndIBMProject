@@ -19,8 +19,7 @@ public class Class {
     private Integer year;
     private String section;
 
-//    @OneToMany(mappedBy = "aClass")
-//    private List<User> teacher;
+
     @JsonManagedReference
     @ManyToMany(cascade = {
             CascadeType.DETACH,
@@ -64,12 +63,12 @@ public class Class {
     public Class() {
     }
 
-    public Class(Long id, String name, Integer year, String section, List<User> teacher, Set<User> students, Set<Classroom> classrooms, List<Schedule> classDates) {
+    public Class(Long id, String name, Integer year, String section, User teacher, Set<User> students, Set<Classroom> classrooms, List<Schedule> classDates) {
         this.id = id;
         this.name = name;
         this.year = year;
         this.section = section;
-        //this.teacher = teacher;
+        this.teacher = teacher;
         this.students = students;
         this.classrooms = classrooms;
         this.classDates = classDates;
@@ -82,16 +81,6 @@ public class Class {
     public void setClassDates(List<Schedule> classDates) {
         this.classDates = classDates;
     }
-
-//    public List<User> getTeacher() {
-//        return teacher;
-//    }
-//
-//    public void setTeacher(List<User> teacher) {
-//        this.teacher = teacher;
-//    }
-
-
 
     public Set<Classroom> getClassrooms() {
         return classrooms;

@@ -150,18 +150,4 @@ public class User {
         return result;
     }
 
-//    @Override
-//    public String toString() {
-//        return "User{" +
-//                "id=" + id +
-//                ", firstName='" + firstName + '\'' +
-//                ", lastName='" + lastName + '\'' +
-//                ", year=" + year +
-//                ", role=" + role +
-//                ", department='" + department + '\'' +
-//                ", section='" + section + '\'' +
-//                ", aClass=" + aClass +
-//                ", enroledStudents=" + enroledStudents +
-//                '}';
-//    }
 }

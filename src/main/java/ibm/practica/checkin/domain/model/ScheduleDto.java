@@ -1,26 +1,36 @@
 package ibm.practica.checkin.domain.model;
 
 
-
-import java.time.LocalDate;
-
-
 public final class ScheduleDto {
 
-    private LocalDate date;
+    private String startTime;
+    private String endTime;
 
     public ScheduleDto() {
     }
 
-    public ScheduleDto(LocalDate date) {
-        this.date = date;
+    public ScheduleDto(String date) {
+        this.startTime = date;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public ScheduleDto(String startTime, String endTime) {
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 }

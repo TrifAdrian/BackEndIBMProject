@@ -13,16 +13,17 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/class")
 public class ClassService implements ClassController{
 
     @Autowired
     ClassPersistenceService classPersistenceService;
 
-    @PutMapping
+    @PutMapping("/{id}")
     @Override
-    public Class updateClass(@RequestBody ClassDetail classDetail) {
-        return classPersistenceService.updateClass(classDetail);
+    public Class updateClass(@PathVariable("id") Long id,@RequestBody ClassDetail classDetail) {
+        return classPersistenceService.updateClass(id,classDetail);
     }
 
     @Override
@@ -34,7 +35,7 @@ public class ClassService implements ClassController{
 
     @Override
     @DeleteMapping("/{id}")
-    public void deleteClass(Long id) {
+    public void deleteClass(@PathVariable("id") Long id) {
         classPersistenceService.deleteClass(id);
     }
 

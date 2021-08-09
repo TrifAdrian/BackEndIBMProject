@@ -14,7 +14,7 @@ public interface ClassPersistenceService {
      Long persistClass(ClassDetail classDetail);
      Optional<ClassDto> findClass(Long id);
      List<ClassDto> getAllClasses();
-     Class updateClass(ClassDetail ClassDetail);
+     Class updateClass(Long id,ClassDetail ClassDetail);
      void deleteClass(Long id);
      Integer updateStudentList(Long id, Long studentId);
 
