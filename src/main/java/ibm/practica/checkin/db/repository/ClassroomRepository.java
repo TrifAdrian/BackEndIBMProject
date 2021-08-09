@@ -37,6 +37,9 @@ public interface ClassroomRepository extends JpaRepository<Classroom, Long> {
             "from Classroom cr join cr.classes repatition where repatition.id = :id")
     ClassroomDto getClassroomByClassId(@Param("id") Long id);
 
+    @Query("select cr from Classroom cr join cr.classes c where c.id = :id")
+    Classroom getClassroomEnByClassId(@Param("id") Long id);
+
 
 
 
