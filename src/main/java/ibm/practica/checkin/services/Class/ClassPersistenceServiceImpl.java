@@ -37,7 +37,7 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
 
             Classroom classroom = classroomRepository.getClassroomEnByClassId(var.getId());
 
-            if(studentlist.size() > classroom.getCapacity())
+            if(studentlist.size() < classroom.getCapacity())
             {
                 User user = userRepository.getById(studentId);
                 studentlist.add(user);
@@ -45,9 +45,10 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
 
                 return new Integer(0);
             }
+            else return new Integer(1);
 
         }
-        return new Integer(1);
+        else return new Integer(1);
     }
 
     @Override
