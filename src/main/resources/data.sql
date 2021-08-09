@@ -1,5 +1,5 @@
 --
-insert into classroom values (1,50,'UPT','A101');
+insert into classroom values (1,2,'UPT','A101');
 insert into classroom values (2,30,'UPT','B520');
 insert into classroom values (3,100,'Chimie Centru','303');
 insert into classroom values (4,20,'UPT','C101');

@@ -34,11 +34,18 @@ public class ClassPersistenceServiceImpl implements ClassPersistenceService{
         {
             Class var = updateClass.get();
             Set<User> studentlist = var.getStudents();
-            User user = userRepository.getById(studentId);
-            studentlist.add(user);
-            classRepository.save(var);
 
-            return new Integer(0);
+            Classroom classroom = classroomRepository.getClassroomEnByClassId(var.getId());
+
+            if(studentlist.size() > classroom.getCapacity())
+            {
+                User user = userRepository.getById(studentId);
+                studentlist.add(user);
+                classRepository.save(var);
+
+                return new Integer(0);
+            }
+
         }
         return new Integer(1);
     }
