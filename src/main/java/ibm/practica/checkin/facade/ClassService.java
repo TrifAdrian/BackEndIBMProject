@@ -4,6 +4,7 @@ import ibm.practica.checkin.db.model.Class;
 import ibm.practica.checkin.domain.model.ClassDetail;
 import ibm.practica.checkin.domain.model.ClassDto;
 import ibm.practica.checkin.domain.model.ClassEnrollStudent;
+import ibm.practica.checkin.exception.ClassIsFullException;
 import ibm.practica.checkin.services.Class.ClassPersistenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,8 +30,13 @@ public class ClassService implements ClassController{
     @Override
     @PatchMapping("/update")
     public Integer enrolToClass(@RequestBody ClassEnrollStudent classEnrollStudent) {
+        Integer response;
+        response = classPersistenceService.updateStudentList(classEnrollStudent.getClassId(),classEnrollStudent.getStudentId());
 
-        return classPersistenceService.updateStudentList(classEnrollStudent.getClassId(),classEnrollStudent.getStudentId());
+        if (response == 1)
+            throw new ClassIsFullException();
+
+        return response;
     }
 
     @Override
